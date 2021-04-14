@@ -16,3 +16,12 @@
 
 //     }
 // }
+
+$('.fliponclick').on("click", function() {
+    $this = $(this);
+    if ($this.hasClass('right')) {
+
+    } else {
+        
+    }
+})
