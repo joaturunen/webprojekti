@@ -7,6 +7,7 @@
     <title>Etusivu</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/Joanna.css">
 </head>
 
 <body class="container-fluid">
@@ -55,6 +56,27 @@
     </header>
 
     <main>
+
+          <!-- flipcard onclick -->
+          <div class="container">
+            <div class="card" >
+              <div class="front">
+                <h1>Kysymys 1</h1>
+                <div>
+                    <input type="radio" name="kys1" id="kys1vas1" class="wrong" onclick="c" />
+                    <label for="kys1vas1">vastaus</label>
+                </div>
+                <div>
+                    <input type="radio" name="kys1" id="kys1vas2" class="right" onclick="" />
+                    <label for="kys1vas2">vastaus</label>
+                </div>
+              </div>
+              <div class="back">
+                <p>oikea vastaus</p>
+              </div>
+            </div>
+          </div>
+
     </main>
 
     <footer>
@@ -72,6 +94,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
         integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
         crossorigin="anonymous"></script>
+    <script src="js/Joanna.js"></script>
 </body>
 
 </html>
