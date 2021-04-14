@@ -14,8 +14,10 @@
 <body class="bg-primary">
     <header>
         <div>
-            <!-- tähän joku banneri jos jaksaa-->
+            <!-- tähän joku banneri jos jaksaa -->
         </div>
+
+        <!-- Navbar -->
         <nav class="navbar navbar-expand-md navbar-light bg-light">
             <div class="container-fluid">
                 <a href="#" class="navbar-brand">
@@ -57,10 +59,30 @@
     </header>
 
     <main class="container-fluid d-flex row my-4 mx-0 align-items-baseline align-items-sm-center">
+
+        <!-- Quiz info -->
+        <!-- <section class="container d-flex flex-column align-items-center text-center flex-row px-3 py-3 my-4 mx-0">
+            <div>
+                <h1 class="">Tietovisa</h1>
+            </div>
+            <div class="col-md-6">
+                <p>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                    industry's standard
+                    dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+                    make a type specimen
+                    book. It has survived not only five centuries, but also the leap into electronic typesetting,
+                    remaining essentially
+                    unchanged.
+                </p>
+            </div>
+        </section> -->
+
         <section class="container row row-cols-1 row-cols-lg-2 px-0 my-0 mx-0">
 
+            <!-- Question -->
             <div class="row col px-3 pt-4 mx-0">
-                <div class="col text-white text-center">
+                <div class="col text-center">
                     <h1 id="question"></h1>
                     <figure>
                         <img class="figure-img img-fluid rounded" id="questionImage" alt="question image">
@@ -68,6 +90,7 @@
                 </div>
             </div>
 
+            <!-- Answer options -->
             <div class="col row d-flex flex-column align-items-center flex-sm-row mx-0">
 
                 <div class="col">
@@ -106,6 +129,7 @@
         </section>
     </main>
 
+    <!-- Question answer modal -->
     <div class="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="modal_title" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -120,6 +144,7 @@
         </div>
     </div>
 
+    <!-- Summary modal -->
     <div class="modal fade" id="summary" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="summary_title" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -132,13 +157,14 @@
                     <p class="fs-5" id="summary_wrong_text"></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="btn_play_again">Pelaa uudelleen</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sulje</button>
+                    <button type="button" class="btn btn-primary" id="btn_play_again">Pelaa uudestaan</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer class="footer container-fluid pt-3 text-white text-center mx-0">
         <div>
             <p>&copy Jan-Erik Kämäräinen</p>

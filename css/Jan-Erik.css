@@ -1,6 +1,6 @@
 body {
-    background: linear-gradient(-150deg, #cc804e, #a0468c, #2163ad);
-    background-size: 400% 400%;
+    background: linear-gradient(-150deg, #c2794f, #834175, #215b9e);
+    background-size: 500% 500%;
     animation: gradient 20s ease infinite;
 }
 
@@ -17,7 +17,7 @@ body {
 }
 
 .container {
-    background-color: rgba(255, 255, 255, 0.15) !important;
+    background-color: rgba(255, 255, 255, 0.5) !important;
     backdrop-filter: blur(30px);
     border-radius: 10px;
 }

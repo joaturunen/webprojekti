@@ -54,6 +54,7 @@ $(function () {
         "answer_option_3",
         "answer_option_4",
     ];
+
     const modal = new bootstrap.Modal(document.getElementById("modal"), {
         backdrop: "static",
         keyboard: false,
@@ -68,27 +69,33 @@ $(function () {
 
     let initCompleted = false;
     let questionIndex = 0;
+    let correct_answers = 0;
+    let wrong_answers = 0;
     let questionObj;
     let question;
     let image;
     let correctIndex;
     let correctAnswer;
-    let correct_answers = 0;
-    let wrong_answers = 0;
 
     if (initCompleted === false) {
         init();
     }
 
+    /**
+     * Executed on first page load
+     * Gets the first question and sets the click handler
+     */
     function init() {
         nextQuestion();
         clickHandler();
         initCompleted = true;
     }
 
+    /**
+     *  Shows the next question if there's questions left
+     */
     function nextQuestion() {
         if (questionIndex === QUETION_AMOUNT) {
-            console.log("Game over!");
             modal.hide();
             showSummary();
         } else {
@@ -104,38 +111,33 @@ $(function () {
         }
     }
 
+    /**
+     *  Inserts question image and answer options to elements in HTML
+     */
     function initElements() {
-        // Insert question to title element
         $("#question").html(question);
-
-        // Insert image to image element
         $("#questionImage").attr("src", image);
-
-        // Insert answer options to answer buttons
         for (let i = 0; i <= btnAnswerTitleIds.length; i++) {
             $(`#${btnAnswerTitleIds[i]}`).html(questionObj.answers[i]);
         }
     }
 
-    // Handle click event for each answer option button
+    /**
+     *  Handles the click event of answer buttons
+     */
     function clickHandler() {
-        $("#answer_option_1").on("click", function () {
-            validateAnswer($("#answer_option_1"), correctAnswer);
-        });
-
-        $("#answer_option_2").on("click", function () {
-            validateAnswer($("#answer_option_2"), correctAnswer);
-        });
-
-        $("#answer_option_3").on("click", function () {
-            validateAnswer($("#answer_option_3"), correctAnswer);
-        });
-
-        $("#answer_option_4").on("click", function () {
-            validateAnswer($("#answer_option_4"), correctAnswer);
+        $("[name=answerBtn]").each(function () {
+            $(this).on("click", function () {
+                validateAnswer($(this), correctAnswer);
+            });
         });
     }
 
+    /**
+     *
+     * @param {Object} answerBtn - Answer button element
+     * @param {String} correctAnswer - The question answer as a string
+     */
     function validateAnswer(answerBtn, correctAnswer) {
         disableButtons(answerBtn);
 
@@ -155,8 +157,15 @@ $(function () {
         }, NEXT_QUESTION_DELAY);
     }
 
+    /**
+     *
+     * @param {Object} answerBtn - Answer button element
+     * @param {String} colorClass - Highlight color as a string
+     * @param {Number|Boolean} timeout - in ms or true/false, Boolean = color stays, Number = color fades after timeout
+     */
     function answerBtnAnimate(answerBtn, colorClass, timeout) {
         answerBtn.addClass(colorClass);
+        answerBtn.addClass("text-white");
 
         if (!(timeout === true)) {
             setTimeout(() => {
@@ -165,6 +174,10 @@ $(function () {
         }
     }
 
+    /**
+     *
+     * @param {Objext} answerBtn - Answer button element
+     */
     function disableButtons(answerBtn) {
         for (let i = 0; i < btnAnswerTitleIds.length; i++) {
             if (btnAnswerTitleIds[i] === answerBtn[0].id) {
@@ -175,14 +188,23 @@ $(function () {
         }
     }
 
+    /**
+     *  Enables and removes all unnecessary classes from answer buttons
+     */
     function clearInput() {
         for (let i = 0; i < btnAnswerTitleIds.length; i++) {
             $(`#${btnAnswerTitleIds[i]}`).prop("disabled", false);
+            $(`#${btnAnswerTitleIds[i]}`).removeClass("text-white");
             $(`#${btnAnswerTitleIds[i]}`).removeClass("bg-success");
             $(`#${btnAnswerTitleIds[i]}`).removeClass("bg-danger");
         }
     }
 
+    /**
+     *
+     * @param {Boolean} answerBoolean - Is the answer correct
+     * @param {String} correctAnswer - Correct question answer
+     */
     function showWrongOrCorrectModal(answerBoolean, correctAnswer) {
         $("#modal_text").html(`Eläin on ${correctAnswer.toLowerCase()}.`);
 
@@ -201,6 +223,9 @@ $(function () {
         modal.show();
     }
 
+    /**
+     *  On game complete, show a summary of correct and wrong questions
+     */
     function showSummary() {
         $("#summary_title").html("Peli päättyi!");
         $("#summary_title").prepend(
@@ -208,15 +233,11 @@ $(function () {
         );
 
         $("#summary_correct_text").html(
-            `Oikeita vastauksia: ${correct_answers}`
-        );
-        $("#summary_correct_text").prepend(
-            `<i class="fa fa-check-square text-success pe-2" aria-hidden="true"></i>`
+            `Oikeita vastauksia: <span class="badge bg-success">${correct_answers}</span>`
         );
 
-        $("#summary_wrong_text").html(`Vääriä vastauksia: ${wrong_answers}`);
-        $("#summary_wrong_text").prepend(
-            `<i class="fa fa-times text-danger pe-2" aria-hidden="true"></i>`
+        $("#summary_wrong_text").html(
+            `Vääriä vastauksia: <span class="badge bg-danger">${wrong_answers}</span>`
         );
 
         summary.show();
@@ -226,6 +247,12 @@ $(function () {
         });
     }
 
+    /**
+     *
+     * @param {Number} min - Minimum number
+     * @param {Number} max - Maximum number
+     * @returns {Number} - Returns a number between min and max (min included, max excluded)
+     */
     function getRndInteger(min, max) {
         return Math.floor(Math.random() * (max - min)) + min;
     }
