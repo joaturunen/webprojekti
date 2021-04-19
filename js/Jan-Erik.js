@@ -1,47 +1,47 @@
 /// <reference path="jquery-3.6.0.js" />
 "use strict";
 
-$(function () {
-    const questions = [
-        {
-            question: "Mikä eläin tämä on?",
-            answers: ["Kissa", "Leopardi", "Leijona", "Susi"],
-            correctIndex: 2,
-            image: "img/jan-erik/leijona.jpg",
-            //https://pixabay.com/fi/photos/lion-petoel%C3%A4in-vaarallinen-harja-3372720/
-        },
-        {
-            question: "Mikä eläin tämä on?",
-            answers: ["Laama", "Alligaattori", "Virtahepo", "Norsu"],
-            correctIndex: 3,
-            image: "img/jan-erik/norsu.jpg",
-            // https://pixabay.com/fi/photos/norsu-el%C3%A4inten-safari-nis%C3%A4k%C3%A4s-114543/
-        },
-        {
-            question: "Mikä eläin tämä on?",
-            answers: ["Jääkarhu", "Panda", "Karhu", "Laiskiainen"],
-            correctIndex: 1,
-            image: "img/jan-erik/panda.jpg",
-            // https://pixabay.com/fi/photos/panda-uhanalainen-harvinaisten-505149/
-        },
-        {
-            question: "Mikä eläin tämä on?",
-            answers: ["Seepra", "Kameli", "Kirahvi", "Hirvi"],
-            correctIndex: 2,
-            image: "img/jan-erik/kirahvi.jpg",
-            // https://pixabay.com/fi/photos/kirahvi-el%C3%A4inten-safari-5800387/
-        },
-        {
-            question: "Mikä eläin tämä on?",
-            answers: ["Ilves", "Gepardi", "Tiikeri", "Hyeena"],
-            correctIndex: 0,
-            image: "img/jan-erik/ilves.jpg",
-            // https://pixabay.com/fi/photos/predator-kissa-el%C3%A4inkunnan-4432461/
-        },
-    ];
+const questions = [
+    {
+        question: "Mikä eläin tämä on?",
+        answers: ["Kissa", "Leopardi", "Leijona", "Susi"],
+        correctIndex: 2,
+        image: "img/jan-erik/leijona.jpg",
+        //https://pixabay.com/fi/photos/lion-petoel%C3%A4in-vaarallinen-harja-3372720/
+    },
+    {
+        question: "Mikä eläin tämä on?",
+        answers: ["Laama", "Alligaattori", "Virtahepo", "Norsu"],
+        correctIndex: 3,
+        image: "img/jan-erik/norsu.jpg",
+        // https://pixabay.com/fi/photos/norsu-el%C3%A4inten-safari-nis%C3%A4k%C3%A4s-114543/
+    },
+    {
+        question: "Mikä eläin tämä on?",
+        answers: ["Jääkarhu", "Panda", "Karhu", "Laiskiainen"],
+        correctIndex: 1,
+        image: "img/jan-erik/panda.jpg",
+        // https://pixabay.com/fi/photos/panda-uhanalainen-harvinaisten-505149/
+    },
+    {
+        question: "Mikä eläin tämä on?",
+        answers: ["Seepra", "Kameli", "Kirahvi", "Hirvi"],
+        correctIndex: 2,
+        image: "img/jan-erik/kirahvi.jpg",
+        // https://pixabay.com/fi/photos/kirahvi-el%C3%A4inten-safari-5800387/
+    },
+    {
+        question: "Mikä eläin tämä on?",
+        answers: ["Ilves", "Gepardi", "Tiikeri", "Hyeena"],
+        correctIndex: 0,
+        image: "img/jan-erik/ilves.jpg",
+        // https://pixabay.com/fi/photos/predator-kissa-el%C3%A4inkunnan-4432461/
+    },
+];
 
+$(function () {
     const QUESTION_AMOUNT = questions.length;
-    const NEXT_QUESTION_DELAY = 1000;
+    const NEXT_QUESTION_DELAY = 1800;
 
     const btnAnswerTitleIds = [
         "answer_option_1",
@@ -102,7 +102,7 @@ $(function () {
             correctIndex = questionObj.correctIndex;
             correctAnswer = questionObj.answers[correctIndex];
 
-            clearInput();
+            resetInput();
             initElements();
         }
     }
@@ -207,9 +207,9 @@ $(function () {
     }
 
     /**
-     *  Enables and removes all unnecessary classes from answer buttons
+     *  Enables the answer buttons and removes all unnecessary classes
      */
-    function clearInput() {
+    function resetInput() {
         for (let i = 0; i < btnAnswerTitleIds.length; i++) {
             $(`#${btnAnswerTitleIds[i]}`).prop("disabled", false);
             $(`#${btnAnswerTitleIds[i]}`).removeClass("text-white");

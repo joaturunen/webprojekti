@@ -1,5 +1,7 @@
 body {
-    background: linear-gradient(230deg, #c2794f, #744183, #3a73a1);
+    background: linear-gradient(230deg, #d48353, #744183, #3a73a1);
+    background-size: 200% 200%;
+    background-repeat: no-repeat;
 }
 
 .container {
