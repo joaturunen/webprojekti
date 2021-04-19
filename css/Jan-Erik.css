@@ -1,24 +1,9 @@
 body {
-    background: linear-gradient(-150deg, #c2794f, #834175, #215b9e);
-    background-size: 500% 500%;
-    animation: gradient 20s ease infinite;
-}
-
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+    background: linear-gradient(230deg, #c2794f, #744183, #3a73a1);
 }
 
 .container {
     background-color: rgba(255, 255, 255, 0.5) !important;
-    backdrop-filter: blur(30px);
     border-radius: 10px;
 }
 

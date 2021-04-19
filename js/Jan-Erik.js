@@ -4,7 +4,6 @@
 $(function () {
     const questions = [
         {
-            index: 1,
             question: "Mikä eläin tämä on?",
             answers: ["Kissa", "Leopardi", "Leijona", "Susi"],
             correctIndex: 2,
@@ -12,7 +11,6 @@ $(function () {
             //https://pixabay.com/fi/photos/lion-petoel%C3%A4in-vaarallinen-harja-3372720/
         },
         {
-            index: 2,
             question: "Mikä eläin tämä on?",
             answers: ["Laama", "Alligaattori", "Virtahepo", "Norsu"],
             correctIndex: 3,
@@ -20,7 +18,6 @@ $(function () {
             // https://pixabay.com/fi/photos/norsu-el%C3%A4inten-safari-nis%C3%A4k%C3%A4s-114543/
         },
         {
-            index: 3,
             question: "Mikä eläin tämä on?",
             answers: ["Jääkarhu", "Panda", "Karhu", "Laiskiainen"],
             correctIndex: 1,
@@ -28,7 +25,6 @@ $(function () {
             // https://pixabay.com/fi/photos/panda-uhanalainen-harvinaisten-505149/
         },
         {
-            index: 4,
             question: "Mikä eläin tämä on?",
             answers: ["Seepra", "Kameli", "Kirahvi", "Hirvi"],
             correctIndex: 2,
@@ -36,7 +32,6 @@ $(function () {
             // https://pixabay.com/fi/photos/kirahvi-el%C3%A4inten-safari-5800387/
         },
         {
-            index: 5,
             question: "Mikä eläin tämä on?",
             answers: ["Ilves", "Gepardi", "Tiikeri", "Hyeena"],
             correctIndex: 0,
@@ -45,7 +40,7 @@ $(function () {
         },
     ];
 
-    const QUETION_AMOUNT = questions.length;
+    const QUESTION_AMOUNT = questions.length;
     const NEXT_QUESTION_DELAY = 1000;
 
     const btnAnswerTitleIds = [
@@ -95,7 +90,9 @@ $(function () {
      *  Shows the next question if there's questions left
      */
     function nextQuestion() {
-        if (questionIndex === QUETION_AMOUNT) {
+        if (initCompleted) questionIndex++;
+
+        if (questionIndex >= QUESTION_AMOUNT) {
             modal.hide();
             showSummary();
         } else {
@@ -107,18 +104,27 @@ $(function () {
 
             clearInput();
             initElements();
-            questionIndex++;
         }
     }
 
     /**
-     *  Inserts question image and answer options to elements in HTML
+     *  Inserts question image, index and
+     *  answer options to elements in HTML
      */
     function initElements() {
+        $("#questionIndex").html(`${questionIndex + 1}/${QUESTION_AMOUNT}`);
         $("#question").html(question);
         $("#questionImage").attr("src", image);
         for (let i = 0; i <= btnAnswerTitleIds.length; i++) {
             $(`#${btnAnswerTitleIds[i]}`).html(questionObj.answers[i]);
+        }
+
+        if (!initCompleted) {
+            for (let i = 0; i < QUESTION_AMOUNT; i++) {
+                $("#trophies").append(
+                    `<i class="fa fs-1 text-white px-1 fa-trophy" name="trophy" aria-hidden="true"></i>`
+                );
+            }
         }
     }
 
@@ -143,10 +149,12 @@ $(function () {
 
         if (answerBtn.text() === correctAnswer) {
             answerBtnAnimate(answerBtn, "bg-success", true);
+            trophyColor("text-success");
             showWrongOrCorrectModal(true, correctAnswer);
             correct_answers++;
         } else {
             answerBtnAnimate(answerBtn, "bg-danger", true);
+            trophyColor("text-danger");
             showWrongOrCorrectModal(false, correctAnswer);
             wrong_answers++;
         }
@@ -172,6 +180,16 @@ $(function () {
                 answerBtn.removeClass(colorClass);
             }, timeout);
         }
+    }
+
+    /**
+     * Changes color of the trophy
+     * @param {String} colorClass - Color class, for example text-success
+     */
+    function trophyColor(colorClass) {
+        let trophy = $(`[name=trophy]:eq(${questionIndex})`);
+        $(trophy).removeClass("text-white");
+        $(trophy).addClass(colorClass);
     }
 
     /**
