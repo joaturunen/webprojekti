@@ -148,12 +148,12 @@ $(function () {
         disableButtons(answerBtn);
 
         if (answerBtn.text() === correctAnswer) {
-            answerBtnAnimate(answerBtn, "bg-success", true);
+            answerBtnAnimate(answerBtn, "jk-btn-gradient-correct", true);
             trophyColor("text-success");
             showWrongOrCorrectModal(true, correctAnswer);
             correct_answers++;
         } else {
-            answerBtnAnimate(answerBtn, "bg-danger", true);
+            answerBtnAnimate(answerBtn, "jk-btn-gradient-wrong", true);
             trophyColor("text-danger");
             showWrongOrCorrectModal(false, correctAnswer);
             wrong_answers++;
@@ -173,7 +173,6 @@ $(function () {
      */
     function answerBtnAnimate(answerBtn, colorClass, timeout) {
         answerBtn.addClass(colorClass);
-        answerBtn.addClass("text-white");
 
         if (!(timeout === true)) {
             setTimeout(() => {
@@ -212,9 +211,10 @@ $(function () {
     function resetInput() {
         for (let i = 0; i < btnAnswerTitleIds.length; i++) {
             $(`#${btnAnswerTitleIds[i]}`).prop("disabled", false);
-            $(`#${btnAnswerTitleIds[i]}`).removeClass("text-white");
-            $(`#${btnAnswerTitleIds[i]}`).removeClass("bg-success");
-            $(`#${btnAnswerTitleIds[i]}`).removeClass("bg-danger");
+            $(`#${btnAnswerTitleIds[i]}`).removeClass(
+                "jk-btn-gradient-correct"
+            );
+            $(`#${btnAnswerTitleIds[i]}`).removeClass("jk-btn-gradient-wrong");
         }
     }
 

@@ -1,5 +1,11 @@
-body {
+/* body {
     background: linear-gradient(230deg, #d48353, #744183, #3a73a1);
+    background-size: 200% 200%;
+    background-repeat: no-repeat;
+} */
+
+body {
+    background: linear-gradient(230deg, #7785c5, #6873d6, #557191);
     background-size: 200% 200%;
     background-repeat: no-repeat;
 }
@@ -15,4 +21,47 @@ body {
 
 #questionImage {
     width: 55rem !important;
+}
+
+.jk-badge-blue {
+    background-color: #6078e2;
+}
+
+.jk-btn-gradient {
+    background: linear-gradient(
+        to right,
+        #857bc0 0%,
+        #403f61ea 51%,
+        #80b1d1 100%
+    );
+    text-align: center;
+    border-radius: 6px;
+    background-size: 200% auto;
+    display: block;
+}
+
+.jk-btn-gradient-correct {
+    background: linear-gradient(
+        to right,
+        #548548 0%,
+        #446941 51%,
+        #53ac71 100%
+    );
+    text-align: center;
+    border-radius: 6px;
+    background-size: 200% auto;
+    display: block;
+}
+
+.jk-btn-gradient-wrong {
+    background: linear-gradient(
+        to right,
+        #d63d3d 0%,
+        #642121 51%,
+        #9c2d2d 100%
+    );
+    text-align: center;
+    border-radius: 6px;
+    background-size: 200% auto;
+    display: block;
 }
