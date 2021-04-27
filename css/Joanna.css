@@ -17,33 +17,30 @@
   
   .container {
     margin: 20px;
-    width: 500px;
-    height: 500px;
+    width: 300px;
+    height: 300px;
     perspective: 1000px;
   }
   
-  .card {
-    transition: transform 2s;
-    transform-style: preserve-3d;
-    cursor: pointer;
-  }
-  
+
   .front, .back {
     position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    backface-visibility: hidden;
   }
   
   .front {
     border: 2px solid black;
+    background-color: rgb(35, 228, 115);
   }
 
   
   .back {
     border: 2px solid black;
-    transform: rotateY(180deg);
-  }
+    background-color: rgb(35, 228, 115);
+  } 
+
+
   
