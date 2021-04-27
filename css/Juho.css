@@ -2,7 +2,14 @@ section {
     padding-bottom: 40px;
 }
 
-h4 {
-    padding-bottom: 5px;
 
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.btn {
+   padding: 40px;
+   
+} 
+.mb-2 {
+    margin-top: 2px;
 }
