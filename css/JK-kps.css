@@ -1,0 +1,39 @@
+/* Jan-Erik Kämäräinen */
+
+:root {
+    --color-bg: #303030;
+    --color-card: #505050;
+    --color-circle: #404040;
+    --color-circle-hover: #353535;
+    --color-circle-hover-text: #6cbb11;
+    --color-text: #eeeeee;
+}
+
+body {
+    background: var(--color-bg);
+    color: var(--color-text);
+}
+
+.card {
+    padding-bottom: 3em;
+    background-color: var(--color-card);
+    color: var(--color-text);
+    text-align: center;
+    border-radius: 10;
+    border-style: none;
+}
+
+.user-img {
+    font-size: 5em;
+}
+
+.choice {
+    background-color: var(--color-circle);
+    color: var(--color-text);
+    border: none;
+    border-radius: 8px;
+}
+
+.clicked {
+    background-color: var(--color-circle-hover);
+}

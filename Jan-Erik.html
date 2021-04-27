@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eläinvisa</title>
+    <meta name="author" content="Jan-Erik Kämäräinen">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/Jan-Erik.css">
@@ -29,7 +30,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarToggler">
-                    <ul class="navbar-nav ">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="index.html">Etusivu</a>
                         </li>
@@ -37,7 +38,10 @@
                             <a class="nav-link" href="Matias.html">Matiaksen peli</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Jan-Erik.html">Jan-Erikin peli</a>
+                            <a class="nav-link" href="Jan-Erik.html">Eläinvisa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="JK-kps.html">Kivi, paperi ja sakset</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="Juho.html">Juhon peli</a>
@@ -80,15 +84,16 @@
 
         <section class="container row row-cols-1 row-cols-lg-2 mx-0 my-0 px-0">
 
-            <!-- Question -->
+            <!-- Progress badge and trophies -->
             <div class="row col px-3 pt-4 mx-0">
                 <div class="row mx-0 px-0 mb-3 mb-sm-0">
                     <div class="col-1">
-                        <span class="badge px-3 py-2 fs-6 bg-primary" id="questionIndex"></span>
+                        <span class="badge px-3 py-2 fs-6 jk-badge-blue" id="questionIndex"></span>
                     </div>
                     <div class="col text-end" id="trophies">
                     </div>
                 </div>
+                <!-- Question -->
                 <div class="col text-center">
                     <h1 id="question"></h1>
                     <figure>
@@ -102,33 +107,25 @@
 
                 <div class="col">
                     <div class="py-2 py-lg-4 px-0 px-sm-3">
-                        <div class="card">
-                            <button class="btn py-3 py-md-5 fs-5 fw-bolder" name="answerBtn"
-                                id="answer_option_1"></button>
-                        </div>
+                        <button class="btn w-100 py-3 py-md-5 fs-5 text-white fw-bolder jk-btn-gradient"
+                            name="answerBtn" id="answer_option_1"></button>
                     </div>
 
                     <div class="py-2 py-lg-4 px-0 px-sm-3">
-                        <div class="card">
-                            <button class="btn py-3 py-md-5 fs-5 fw-bolder" name="answerBtn"
-                                id="answer_option_2"></button>
-                        </div>
+                        <button class="btn w-100 py-3 py-md-5 fs-5 text-white fw-bolder jk-btn-gradient"
+                            name="answerBtn" id="answer_option_2"></button>
                     </div>
                 </div>
 
                 <div class="col">
                     <div class="py-2 py-lg-4 px-0 px-sm-3">
-                        <div class="card">
-                            <button class="btn py-3 py-md-5 fs-5 fw-bolder" name="answerBtn"
-                                id="answer_option_3"></button>
-                        </div>
+                        <button class="btn w-100 py-3 py-md-5 fs-5 text-white fw-bolder jk-btn-gradient"
+                            name="answerBtn" id="answer_option_3"></button>
                     </div>
 
                     <div class="py-2 py-lg-4 px-0 px-sm-3">
-                        <div class="card">
-                            <button class="btn py-3 py-md-5 fs-5 fw-bolder" name="answerBtn"
-                                id="answer_option_4"></button>
-                        </div>
+                        <button class="btn w-100 py-3 py-md-5 fs-5 text-white fw-bolder jk-btn-gradient"
+                            name="answerBtn" id="answer_option_4"></button>
                     </div>
                 </div>
 
@@ -137,7 +134,7 @@
     </main>
 
     <!-- Question answer modal -->
-    <div class="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    <div class="modal fade" id="answerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="modal_title" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -152,7 +149,7 @@
     </div>
 
     <!-- Summary modal -->
-    <div class="modal fade" id="summary" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    <div class="modal fade" id="summaryModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
         aria-labelledby="summary_title" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -160,8 +157,8 @@
                     <h5 class="modal-title" id="summary_title"></h5>
                 </div>
                 <div class="modal-body" id="modal_body">
-                    <p class="fs-5" id="summary_correct_text"></p>
-                    <p class="fs-5" id="summary_wrong_text"></p>
+                    <p class="fs-5" id="summary_correct"></p>
+                    <p class="fs-5" id="summary_wrong"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sulje</button>
