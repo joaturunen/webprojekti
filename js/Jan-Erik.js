@@ -1,6 +1,7 @@
 /// <reference path="jquery-3.6.0.js" />
+
 /**
- * Jan-Erik Kämäräinen
+ *  Jan-Erik Kämäräinen
  */
 
 "use strict";
@@ -45,7 +46,8 @@ const questions = [
 
 $(function () {
     const QUESTION_AMOUNT = questions.length;
-    const NEXT_QUESTION_DELAY = 1800;
+    //const NEXT_QUESTION_DELAY = 1800;
+    const NEXT_QUESTION_DELAY = 500;
 
     const btnAnswerIds = [
         "answer_option_1",
@@ -71,6 +73,13 @@ $(function () {
             focus: false,
         }
     );
+
+    const summaryText = {
+        One: "Tarvitset lisää harjoitusta. ☹️",
+        Two: "Hyvä yritys. 🙂",
+        Three: "Hyvä tulos! 😃",
+        Four: "Mahtava tulos! 😁",
+    };
 
     let initCompleted = false;
     let questionIndex = 0;
@@ -151,8 +160,8 @@ $(function () {
 
     /**
      *
-     * @param {Object} answerBtn - Answer button element
-     * @param {String} correctAnswer - The question answer as a string
+     * @param {object} answerBtn - Answer button element
+     * @param {string} correctAnswer - The question answer as a string
      */
     function validateAnswer(answerBtn, correctAnswer) {
         disableButtons(answerBtn);
@@ -177,9 +186,9 @@ $(function () {
 
     /**
      *
-     * @param {Object} answerBtn - Answer button element
-     * @param {String} colorClass - Highlight color as a string
-     * @param {Number|Boolean} duration - in ms or Boolean true; true = color stays, Number = color fades after duration
+     * @param {object} answerBtn - Answer button element
+     * @param {string} colorClass - Highlight color as a string
+     * @param {number|boolean} duration - in ms or Boolean true; true = color stays, Number = color fades after duration
      */
     function answerBtnAnimate(answerBtn, colorClass, duration) {
         answerBtn.addClass(colorClass);
@@ -193,7 +202,7 @@ $(function () {
 
     /**
      * Changes color of the trophy
-     * @param {String} colorClass - Color class, for example text-success
+     * @param {string} colorClass - Color class, for example text-success
      */
     function trophyColor(colorClass) {
         let trophy = $(`[name=trophy]:eq(${questionIndex})`);
@@ -203,8 +212,8 @@ $(function () {
     }
 
     /**
-     *
-     * @param {Objext} answerBtn - Answer button element
+     * Disables answer buttons except the one user clicked
+     * @param {object} answerBtn - Answer button element
      */
     function disableButtons(answerBtn) {
         for (let i = 0; i < btnAnswerIds.length; i++) {
@@ -229,8 +238,8 @@ $(function () {
 
     /**
      *
-     * @param {Boolean} answerBoolean - Is the answer correct
-     * @param {String} correctAnswer - Correct question answer
+     * @param {boolean} answerBoolean - Is the answer correct
+     * @param {string} correctAnswer - Correct question answer
      */
     function showWrongOrCorrectModal(answerBoolean, correctAnswer) {
         $("#modal_text").html(`Eläin on ${correctAnswer.toLowerCase()}.`);
@@ -254,10 +263,9 @@ $(function () {
      *  On game complete, show a summaryModal of correct and wrong questions
      */
     function showsummaryModal() {
+        calculateSummaryText();
+
         $("#summary_title").html("Peli päättyi!");
-        $("#summary_title").prepend(
-            `<i class="fa fa-thumbs-up text-success pe-2" aria-hidden="true"></i>`
-        );
 
         $("#summary_correct").html(
             `Oikeita vastauksia: <span class="badge bg-success">${correct_answers}</span>`
@@ -275,10 +283,29 @@ $(function () {
     }
 
     /**
+     *  Calculates the summary text and adds it to text element in the summary modal
+     */
+    function calculateSummaryText() {
+        if (correct_answers === 0) {
+            $("#summary_text").html(summaryText.One);
+            console.log("0 oikeaa vastausta");
+        } else if (correct_answers <= 2) {
+            $("#summary_text").html(summaryText.Two);
+            console.log("2 tai vähemmän oikeaa vastausta");
+        } else if (correct_answers <= 4) {
+            $("#summary_text").html(summaryText.Three);
+            console.log("4 tai vähemmän oikeaa vastausta");
+        } else if (correct_answers <= 5) {
+            $("#summary_text").html(summaryText.Four);
+            console.log("5 tai vähemmän oikeaa vastausta");
+        }
+    }
+
+    /**
      *
-     * @param {Number} min - Minimum number
-     * @param {Number} max - Maximum number
-     * @returns {Number} - Returns a number between min and max (min included, max excluded)
+     * @param {number} min - Minimum number
+     * @param {number} max - Maximum number
+     * @returns {number} - Returns a number between min and max (min included, max excluded)
      */
     function getRndInteger(min, max) {
         return Math.floor(Math.random() * (max - min)) + min;
