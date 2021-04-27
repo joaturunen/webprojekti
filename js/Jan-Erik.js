@@ -1,4 +1,8 @@
 /// <reference path="jquery-3.6.0.js" />
+/**
+ * Jan-Erik Kämäräinen
+ */
+
 "use strict";
 
 const questions = [
@@ -43,24 +47,30 @@ $(function () {
     const QUESTION_AMOUNT = questions.length;
     const NEXT_QUESTION_DELAY = 1800;
 
-    const btnAnswerTitleIds = [
+    const btnAnswerIds = [
         "answer_option_1",
         "answer_option_2",
         "answer_option_3",
         "answer_option_4",
     ];
 
-    const modal = new bootstrap.Modal(document.getElementById("modal"), {
-        backdrop: "static",
-        keyboard: false,
-        focus: false,
-    });
+    const answerModal = new bootstrap.Modal(
+        document.getElementById("answerModal"),
+        {
+            backdrop: "static",
+            keyboard: false,
+            focus: false,
+        }
+    );
 
-    const summary = new bootstrap.Modal(document.getElementById("summary"), {
-        backdrop: "static",
-        keyboard: false,
-        focus: false,
-    });
+    const summaryModal = new bootstrap.Modal(
+        document.getElementById("summaryModal"),
+        {
+            backdrop: "static",
+            keyboard: false,
+            focus: false,
+        }
+    );
 
     let initCompleted = false;
     let questionIndex = 0;
@@ -93,8 +103,8 @@ $(function () {
         if (initCompleted) questionIndex++;
 
         if (questionIndex >= QUESTION_AMOUNT) {
-            modal.hide();
-            showSummary();
+            answerModal.hide();
+            showsummaryModal();
         } else {
             questionObj = questions[questionIndex];
             question = questionObj.question;
@@ -115,8 +125,8 @@ $(function () {
         $("#questionIndex").html(`${questionIndex + 1}/${QUESTION_AMOUNT}`);
         $("#question").html(question);
         $("#questionImage").attr("src", image);
-        for (let i = 0; i <= btnAnswerTitleIds.length; i++) {
-            $(`#${btnAnswerTitleIds[i]}`).html(questionObj.answers[i]);
+        for (let i = 0; i <= btnAnswerIds.length; i++) {
+            $(`#${btnAnswerIds[i]}`).html(questionObj.answers[i]);
         }
 
         if (!initCompleted) {
@@ -161,7 +171,7 @@ $(function () {
 
         setTimeout(() => {
             nextQuestion();
-            modal.hide();
+            answerModal.hide();
         }, NEXT_QUESTION_DELAY);
     }
 
@@ -169,15 +179,15 @@ $(function () {
      *
      * @param {Object} answerBtn - Answer button element
      * @param {String} colorClass - Highlight color as a string
-     * @param {Number|Boolean} timeout - in ms or true/false, Boolean = color stays, Number = color fades after timeout
+     * @param {Number|Boolean} duration - in ms or Boolean true; true = color stays, Number = color fades after duration
      */
-    function answerBtnAnimate(answerBtn, colorClass, timeout) {
+    function answerBtnAnimate(answerBtn, colorClass, duration) {
         answerBtn.addClass(colorClass);
 
-        if (!(timeout === true)) {
+        if (duration === false) {
             setTimeout(() => {
                 answerBtn.removeClass(colorClass);
-            }, timeout);
+            }, duration);
         }
     }
 
@@ -187,6 +197,7 @@ $(function () {
      */
     function trophyColor(colorClass) {
         let trophy = $(`[name=trophy]:eq(${questionIndex})`);
+
         $(trophy).removeClass("text-white");
         $(trophy).addClass(colorClass);
     }
@@ -196,11 +207,11 @@ $(function () {
      * @param {Objext} answerBtn - Answer button element
      */
     function disableButtons(answerBtn) {
-        for (let i = 0; i < btnAnswerTitleIds.length; i++) {
-            if (btnAnswerTitleIds[i] === answerBtn[0].id) {
+        for (let i = 0; i < btnAnswerIds.length; i++) {
+            if (btnAnswerIds[i] === answerBtn[0].id) {
                 continue;
             } else {
-                $(`#${btnAnswerTitleIds[i]}`).prop("disabled", true);
+                $(`#${btnAnswerIds[i]}`).prop("disabled", true);
             }
         }
     }
@@ -209,12 +220,10 @@ $(function () {
      *  Enables the answer buttons and removes all unnecessary classes
      */
     function resetInput() {
-        for (let i = 0; i < btnAnswerTitleIds.length; i++) {
-            $(`#${btnAnswerTitleIds[i]}`).prop("disabled", false);
-            $(`#${btnAnswerTitleIds[i]}`).removeClass(
-                "jk-btn-gradient-correct"
-            );
-            $(`#${btnAnswerTitleIds[i]}`).removeClass("jk-btn-gradient-wrong");
+        for (let i = 0; i < btnAnswerIds.length; i++) {
+            $(`#${btnAnswerIds[i]}`).prop("disabled", false);
+            $(`#${btnAnswerIds[i]}`).removeClass("jk-btn-gradient-correct");
+            $(`#${btnAnswerIds[i]}`).removeClass("jk-btn-gradient-wrong");
         }
     }
 
@@ -238,27 +247,27 @@ $(function () {
             );
         }
 
-        modal.show();
+        answerModal.show();
     }
 
     /**
-     *  On game complete, show a summary of correct and wrong questions
+     *  On game complete, show a summaryModal of correct and wrong questions
      */
-    function showSummary() {
+    function showsummaryModal() {
         $("#summary_title").html("Peli päättyi!");
         $("#summary_title").prepend(
             `<i class="fa fa-thumbs-up text-success pe-2" aria-hidden="true"></i>`
         );
 
-        $("#summary_correct_text").html(
+        $("#summary_correct").html(
             `Oikeita vastauksia: <span class="badge bg-success">${correct_answers}</span>`
         );
 
-        $("#summary_wrong_text").html(
+        $("#summary_wrong").html(
             `Vääriä vastauksia: <span class="badge bg-danger">${wrong_answers}</span>`
         );
 
-        summary.show();
+        summaryModal.show();
 
         $("#btn_play_again").on("click", function () {
             location.reload();
