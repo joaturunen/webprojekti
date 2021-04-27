@@ -58,38 +58,45 @@
         </nav>
     </header>
 
-    <main class="container row">
-
-        <div class="col-12 col-md-4 taulu"> <!-- tähän jotain muuta vielä? -->
-            <img src="/img/Joanna/question-mark-2154830_640.png" class="img-fluid" width="150" />
-        </div>
-
-          <!-- flipcard  -->
-        <div class="col-12 col-md-4 card" id="card">
-            <div class="front">
-                <h2 id="kysNro"></h2>
-                <h2 id="kysymys"></h2>
-                <div>
-                    <button name="vastausNappi" id="vastaus_1"></button>
+    <main class="container-fluid row align-items-baseline align-items-sm-center">
+        <div class="container row row-cols-1 row-cols-md-3">
+            <div class="taulu text-center"> <!-- tähän jotain muuta vielä? -->
+                <div >
+                    <img src="/img/Joanna/question-mark-2154830_640.png" class="img-fluid" width="50" />
                 </div>
-                <div>
-                    <button name="vastausNappi" id="vastaus_2"></button>
-                </div>
-                <div>
-                    <button name="vastausNappi" id="vastaus_3"></button>
-                </div>
-                <div>
-                    <button name="vastausNappi" id="vastaus_4"></button>
+                <div >
+                    <h1>Question words</h1>
+                    <div>
+                        <span class="dot" name="pallura" id="1"></span>
+                        <span class="dot" name="pallura" id="2"></span>
+                        <span class="dot" name="pallura" id="3"></span>
+                        <span class="dot" name="pallura" id="4"></span>
+                        <span class="dot" name="pallura" id="5"></span>
+                    </div>
                 </div>
             </div>
-            <div class="back">
-                <h2 id="oikeaVastaus"></h2>
-            </div>
-        </div>
 
-        <div class="col-12 col-md-4 taulu"> <!-- tähän summary, koko ajan näkyvillä -->
-            <p>oikeita</p>
-            <p>vääriä</p>
+            <div class="taulu text-center">
+            <!-- flipcard  -->
+                <div class="card" id="card">
+                    <div class="front">
+                        <h2 id="kysNro"></h2>
+                        <h2 id="kysymys"></h2>
+                        <div class="btn-group">
+                            <button class="vastausnappi" name="vastausNappi" id="vastaus_1"></button>
+                        
+                            <button class="vastausnappi" name="vastausNappi" id="vastaus_2"></button>
+                        
+                            <button class="vastausnappi" name="vastausNappi" id="vastaus_3"></button>
+                        
+                            <button class="vastausnappi" name="vastausNappi" id="vastaus_4"></button>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <h2 id="oikeaVastaus"></h2>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 

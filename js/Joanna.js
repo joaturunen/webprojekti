@@ -31,25 +31,25 @@ const kysymykset = [
     },
 ];
 
+const kysymys_maara = kysymykset.length;
+
+const vastausNapinNumerot = [
+    "vastaus_1",
+    "vastaus_2",
+    "vastaus_3",
+    "vastaus_4"
+];
+
+let peliLoppu = false;
+let kysNro = 0;
+let oikeat = 0;
+let vaarat = 0;
+let kysymysData;
+let kysymys;
+let oikeaNro;
+let oikeaVastaus;
 
 $(function () {
-    const kysymys_maara = kysymykset.length;
-
-    const vastausNapinNumerot = [
-        "vastaus_1",
-        "vastaus_2",
-        "vastaus_3",
-        "vastaus_4"
-    ];
-
-    let peliLoppu = false;
-    let kysNro = 0;
-    let oikeat = 0;
-    let vaarat = 0;
-    let kysymysData;
-    let kysymys;
-    let oikeaNro;
-    let oikeaVastaus;
 
     if (peliLoppu === false) {
         init();
@@ -114,9 +114,11 @@ $(function () {
 
         if (vastausNappi.text() === oikeaVastaus) {
             // muuta back class right
+            //dotVariOikein();
             oikeat++;
         } else {
             // muuta back class wrong
+            //dotVariVaarin();
             vaarat++;
         }
 
@@ -127,6 +129,16 @@ $(function () {
     $("#card").flip({
         trigger: 'manual'
     });
+
+    // vaihda palluran väri
+    // function dotVariOikein()  {
+    //     let pallura = $(`[name=pallura]:eq(${kysNro})`);
+    //     $(pallura).addClass(right)
+    // }
+    // function dotVariVaarin()  {
+    //     let pallura = $(`[name=pallura]:eq(${kysNro})`);
+    //     $(pallura).addClass(wrong)
+    // }
     
 
 })
