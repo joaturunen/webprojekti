@@ -113,8 +113,10 @@ $(function () {
         // disableButtons(vastausNappi);
 
         if (vastausNappi.text() === oikeaVastaus) {
+            // muuta back class right
             oikeat++;
         } else {
+            // muuta back class wrong
             vaarat++;
         }
 

@@ -55,14 +55,14 @@
         </nav>
     </header>
 
-    <main>
+    <main class="container row">
 
-        <div>
-            <img src="/img/Joanna/question-mark-2154830_640.png" class="img-fluid" width="100"/>
+        <div class="col-12 col-md-4 taulu"> <!-- tähän jotain muuta vielä? -->
+            <img src="/img/Joanna/question-mark-2154830_640.png" class="img-fluid" width="150" />
         </div>
 
           <!-- flipcard  -->
-        <div class="container" id="card">
+        <div class="col-12 col-md-4 card" id="card">
             <div class="front">
                 <h2 id="kysNro"></h2>
                 <h2 id="kysymys"></h2>
@@ -82,6 +82,11 @@
             <div class="back">
                 <h2 id="oikeaVastaus"></h2>
             </div>
+        </div>
+
+        <div class="col-12 col-md-4 taulu"> <!-- tähän summary, koko ajan näkyvillä -->
+            <p>oikeita</p>
+            <p>vääriä</p>
         </div>
     </main>
 
