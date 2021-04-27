@@ -1,13 +1,16 @@
 
 /* Värimaailma */
 .bg-color {
+    background-color: rgb(236, 241, 241);
 }
 
 .card {
-    background-color: whitesmoke;
+    background-color: rgba(205, 252, 238, 0.904);
     text-align: center;
     border-radius: 10;
     border-style: solid;
     border-color: lightslategrey;
     border-width: 2px;
+    vertical-align: sub;
 }
+
