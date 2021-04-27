@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etusivu</title>
+    <title>Kivi, paperi ja sakset</title>
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/Joanna.css">
+    <link rel="stylesheet" href="css/JK-kps.css">
 </head>
 
-<body class="container-fluid">
+<body class="h-100">
     <header>
         <div>
             <!-- tähän joku banneri jos jaksaa-->
@@ -58,59 +58,66 @@
         </nav>
     </header>
 
-    <main class="container row">
+    <main class="container mb-5">
+        <h3 class="my-4 text-center">Kivi, paperi ja sakset!</h3>
+        <div class="row row-cols-1 row-cols-md-2">
+            <div class="col py-0 my-0 mb-3 mb-md-0">
+                <div class="card py-3">
+                    <div class="card-body">
 
-        <div class="col-12 col-md-4 taulu"> <!-- tähän jotain muuta vielä? -->
-            <img src="/img/Joanna/question-mark-2154830_640.png" class="img-fluid" width="150" />
-        </div>
+                        <div class="d-flex flex-row justify-content-between flex-nowrap">
 
-          <!-- flipcard  -->
-        <div class="col-12 col-md-4 card" id="card">
-            <div class="front">
-                <h2 id="kysNro"></h2>
-                <h2 id="kysymys"></h2>
-                <div>
-                    <button name="vastausNappi" id="vastaus_1"></button>
-                </div>
-                <div>
-                    <button name="vastausNappi" id="vastaus_2"></button>
-                </div>
-                <div>
-                    <button name="vastausNappi" id="vastaus_3"></button>
-                </div>
-                <div>
-                    <button name="vastausNappi" id="vastaus_4"></button>
+                            <div class="col mx-1 mx-lg-0">
+                                <button class="choice" name="rpsBtn" data-choice="0">
+                                    <img class="img-fluid" src="img/jan-erik/kivi.png" alt="Kivi">
+                                </button>
+                            </div>
+
+                            <div class="col mx-1 mx-lg-0">
+                                <button class="choice" name="rpsBtn" data-choice="1">
+                                    <img class="img-fluid" src="img/jan-erik/paperi.png" alt="Paperi">
+                                </button>
+                            </div>
+
+                            <div class="col mx-1 mx-lg-0">
+                                <button class="choice" name="rpsBtn" data-choice="2">
+                                    <img class="img-fluid" src="img/jan-erik/sakset.png" alt="Sakset">
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="back">
-                <h2 id="oikeaVastaus"></h2>
+
+            <div class="col">
+                <div class="card py-3">
+                    <h2 class="mb-3" id="resultEl">Tulos</h2>
+                    <div class="col result-icon">
+                        <img src="img/jan-erik/placeholder.jpg" class="img-fluid px-1 py-0" id="user-choice">
+                        <img src="img/jan-erik/placeholder.jpg" class="img-fluid px-1 py-0" id="computer-choice">
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="col-12 col-md-4 taulu"> <!-- tähän summary, koko ajan näkyvillä -->
-            <p>oikeita</p>
-            <p>vääriä</p>
-        </div>
     </main>
 
-    <footer>
-        <div class="text-center">
-            <p>&copy Joanna Turunen</p>
+    <footer class="text-center">
+        <div>
+            <p>&copy Jan-Erik Kämäräinen</p>
         </div>
-        <div class="text-center">
+        <div>
             <p>2021</p>
+        </div>
+        <div>
+            <a class="link-light" href="https://github.com/googlefonts/noto-emoji/blob/main/LICENSE">Google Noto emojien
+                lisenssi</a>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
-        integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
-        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
-        crossorigin="anonymous"></script>
-    <script src="js/jquery-3.6.0.js"></script>
-    <script src="js/jquery.flip.js"></script>
-    <script src="js/Joanna.js"></script>
+    <script src="js/jquery-3.6.0.js" defer></script>
+    <script src="js/JK-kps.js" defer></script>
 </body>
 
 </html>
