@@ -2,9 +2,16 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto&display=swap");
 
-/* Background gradient */
+:root {
+    --color-white-transparent: rgb(255, 255, 255, 0.5);
+    --color-blue: #467ce0;
+    --color-btn: #467ce0;
+    --color-btn-hover: #355ba3;
+}
+
 body {
-    background-image: linear-gradient(to top, #a3bded 0%, #6991c7 100%);
+    /* Background gradient */
+    background: linear-gradient(to top, #2e7fca 0%, #396499 100%);
     background-size: 200% 200%;
     background-repeat: no-repeat;
 }
@@ -14,7 +21,7 @@ main {
 }
 
 .container {
-    background-color: rgba(255, 255, 255, 0.5) !important;
+    background-color: var(--color-white-transparent) !important;
     border-radius: 10px;
 }
 
@@ -22,12 +29,17 @@ main {
     border-style: none !important;
 }
 
+/* Class to animate elements on page load */
+.animateOnLoad {
+    opacity: 0;
+}
+
 #questionImage {
     width: 55rem !important;
 }
 
 .jk-badge-blue {
-    background-color: #6078e2;
+    background-color: #467ce0;
 }
 
 /* Answer button */
@@ -35,7 +47,7 @@ main {
     font-family: "Montserrat", sans-serif;
     font-size: 18px;
     letter-spacing: 0.03rem;
-    background: #5e94f8;
+    background-color: var(--color-btn);
     text-align: center;
     border-radius: 6px;
     background-size: 200% auto;
@@ -68,4 +80,12 @@ main {
     border-radius: 6px;
     background-size: 200% auto;
     display: block;
+}
+
+/*  Enable hover only on devices that supoort it.
+    This prevents button staying activated on mobile */
+@media (hover: hover) {
+    .jk-btn:hover {
+        background-color: var(--color-btn-hover);
+    }
 }

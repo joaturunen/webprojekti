@@ -26,6 +26,9 @@ $(function () {
 
     const FADEIN_DURATION = 300;
     const FADEOUT_DURATION = 150;
+    const PAGE_LOAD_ANIMATION_DURATION = 1000;
+
+    $(".animateOnLoad").animate({ opacity: "1" }, PAGE_LOAD_ANIMATION_DURATION);
 
     /**
      * Handles the choice button click

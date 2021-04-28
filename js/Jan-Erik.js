@@ -51,8 +51,8 @@ const questions = [
 
 $(function () {
     const QUESTION_AMOUNT = questions.length;
-    //const NEXT_QUESTION_DELAY = 1800;
-    const NEXT_QUESTION_DELAY = 500;
+    const NEXT_QUESTION_DELAY = 1000;
+    const ANIMATION_DURATION = 1000;
 
     const btnAnswerIds = [
         "answer_option_1",
@@ -105,6 +105,7 @@ $(function () {
      * Gets the first question and sets the click handler
      */
     function init() {
+        $(".animateOnLoad").animate({ opacity: "1" }, ANIMATION_DURATION);
         nextQuestion();
         clickHandler();
         initCompleted = true;

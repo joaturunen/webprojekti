@@ -1,23 +1,23 @@
 /* Jan-Erik Kämäräinen */
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
 
 :root {
-    --color-bg: #ffffff;
-    --color-card: #5e84ca;
-    --color-circle: #2b4b88;
-    --color-circle-hover: #003663;
-    --color-circle-hover-text: #6cbb11;
-    --color-text: #000000;
+    --color-card: #004743;
+    --color-choice: #002f31;
+    --color-choice-hover: #002125;
+    --color-text: #ffffff;
 }
 
 body {
-    background: var(--color-bg);
+    /* Background gradient */
+    background: linear-gradient(to top, #093028, #237a57);
+    background-size: 100% 100%;
     color: var(--color-text);
 }
 
 main {
-    font-family: "Roboto", sans-serif;
+    font-family: "Patrick Hand", sans-serif;
 }
 
 a {
@@ -25,12 +25,11 @@ a {
 }
 
 .card {
-    padding-bottom: 3em;
     background-color: var(--color-card);
     color: var(--color-text);
-    text-align: center;
     border-radius: 10;
     border-style: none;
+    text-align: center;
 }
 
 .user-img {
@@ -38,12 +37,22 @@ a {
 }
 
 .choice {
-    background-color: var(--color-circle);
-    color: var(--color-text);
+    background-color: var(--color-choice);
     border: none;
     border-radius: 8px;
 }
 
 .clicked {
-    background-color: var(--color-circle-hover);
+    background-color: var(--color-choice-hover);
+}
+
+/* Class to animate elements on page load */
+.animateOnLoad {
+    opacity: 0;
+}
+
+@media (hover: hover) {
+    .choice:hover {
+        background-color: var(--color-choice-hover);
+    }
 }
