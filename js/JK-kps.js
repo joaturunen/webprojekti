@@ -104,21 +104,6 @@ $(function () {
     }
 
     /**
-     * Clears the result element
-     */
-    function clearResult() {
-        $("#resultEl").html("");
-    }
-
-    function animateBtn(rpsBtn, colorClass, duration) {
-        rpsBtn.addClass(colorClass);
-
-        setTimeout(() => {
-            rpsBtn.removeClass(colorClass);
-        }, duration);
-    }
-
-    /**
      * Prints the rock paper scissors images
      *
      * @param {Number} userNum - Number between 0-2
@@ -132,6 +117,48 @@ $(function () {
         $("#computer-choice").fadeOut(FADEOUT_DURATION, function () {
             $(this).attr("src", Icon[computerNum]).fadeIn(FADEIN_DURATION);
         });
+    }
+
+    /**
+     * Clears the result element
+     */
+    function clearResult() {
+        $("#resultEl").html("");
+    }
+
+    /**
+     *
+     * @param {object} rpsBtn - Rock/paper/scissors button object
+     * @param {string} colorClass - Either bootstrap or self made class
+     * @param {number} duration - in milliseconds
+     */
+    function animateBtn(rpsBtn, colorClass, duration) {
+        rpsBtn.addClass(colorClass);
+
+        rotateImage(rpsBtn, 360);
+
+        setTimeout(() => {
+            rpsBtn.removeClass(colorClass);
+        }, duration);
+    }
+
+    /**
+     * https://phppot.com/jquery/jquery-image-rotate/
+     * Rotates the clicked button image
+     * @param {object} rpsBtn - Rock/paper/scissors button object
+     * @param {number} degree - The degree how much to rotate the image
+     */
+    function rotateImage(rpsBtn, degree) {
+        $(rpsBtn.children()).animate(
+            { transform: degree },
+            {
+                step: function (now) {
+                    $(this).css({
+                        transform: "rotate(" + now + "deg)",
+                    });
+                },
+            }
+        );
     }
 
     /**

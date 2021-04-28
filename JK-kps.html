@@ -59,43 +59,48 @@
     </header>
 
     <main class="container mb-5">
+
+        <!-- Title -->
         <h3 class="my-4 text-center">Kivi, paperi ja sakset!</h3>
         <div class="row row-cols-1 row-cols-md-2">
             <div class="col py-0 my-0 mb-3 mb-md-0">
                 <div class="card py-3">
                     <div class="card-body">
 
+                        <!-- Rock, paper, scissors buttons -->
                         <div class="d-flex flex-row justify-content-between flex-nowrap">
-
                             <div class="col mx-1 mx-lg-0">
                                 <button class="choice" name="rpsBtn" data-choice="0">
-                                    <img class="img-fluid" src="img/jan-erik/kivi.png" alt="Kivi">
+                                    <img class="img-fluid" name="rpsImg" src="img/jan-erik/kivi.png" alt="Kivi"
+                                        draggable="false">
                                 </button>
                             </div>
 
                             <div class="col mx-1 mx-lg-0">
                                 <button class="choice" name="rpsBtn" data-choice="1">
-                                    <img class="img-fluid" src="img/jan-erik/paperi.png" alt="Paperi">
+                                    <img class="img-fluid" name="rpsImg" src="img/jan-erik/paperi.png" alt="Paperi"
+                                        draggable="false">
                                 </button>
                             </div>
 
                             <div class="col mx-1 mx-lg-0">
                                 <button class="choice" name="rpsBtn" data-choice="2">
-                                    <img class="img-fluid" src="img/jan-erik/sakset.png" alt="Sakset">
+                                    <img class="img-fluid" name="rpsImg" src="img/jan-erik/sakset.png" alt="Sakset"
+                                        draggable="false">
                                 </button>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Answer div -->
             <div class="col">
                 <div class="card py-3">
-                    <h2 class="mb-3" id="resultEl">Tulos</h2>
+                    <h2 class="mb-3 text-white" id="resultEl">Tulos</h2>
                     <div class="col result-icon">
-                        <img src="img/jan-erik/placeholder.jpg" class="img-fluid px-1 py-0" id="user-choice">
-                        <img src="img/jan-erik/placeholder.jpg" class="img-fluid px-1 py-0" id="computer-choice">
+                        <img class="result-bg img-fluid px-1 py-0" id="user-choice" draggable="false">
+                        <img class="result-bg img-fluid px-1 py-0" id="computer-choice" draggable="false">
                     </div>
                 </div>
             </div>
@@ -111,7 +116,7 @@
             <p>2021</p>
         </div>
         <div>
-            <a class="link-light" href="https://github.com/googlefonts/noto-emoji/blob/main/LICENSE">Google Noto emojien
+            <a href="https://github.com/googlefonts/noto-emoji/blob/main/LICENSE">Google Noto emojien
                 lisenssi</a>
         </div>
     </footer>

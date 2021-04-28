@@ -63,29 +63,11 @@
     </header>
 
     <main class="container-fluid d-flex row my-4 mx-0 align-items-baseline align-items-sm-center">
-
-        <!-- Quiz info -->
-        <!-- <section class="container d-flex flex-column align-items-center text-center flex-row px-3 py-3 my-4 mx-0">
-            <div>
-                <h1 class="">Tietovisa</h1>
-            </div>
-            <div class="col-md-6">
-                <p>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard
-                    dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-                    make a type specimen
-                    book. It has survived not only five centuries, but also the leap into electronic typesetting,
-                    remaining essentially
-                    unchanged.
-                </p>
-            </div>
-        </section> -->
-
         <section class="container row row-cols-1 row-cols-lg-2 mx-0 my-0 px-0">
 
-            <!-- Progress badge and trophies -->
             <div class="row col px-3 pt-4 mx-0">
+
+                <!-- Progress badge and trophies -->
                 <div class="row mx-0 px-0 mb-3 mb-sm-0">
                     <div class="col-1">
                         <span class="badge px-3 py-2 fs-6 jk-badge-blue" id="questionIndex"></span>
@@ -95,9 +77,11 @@
                 </div>
                 <!-- Question -->
                 <div class="col text-center">
-                    <h1 id="question"></h1>
+                    <h2 id="question"></h2>
                     <figure>
                         <img class="figure-img img-fluid rounded" id="questionImage" alt="question image">
+                        <figcaption class="fw-light text-start">Kuva: <a id="questionImageSource" class="link-dark"
+                                target="_blank">lähde</a></figcaption>
                     </figure>
                 </div>
             </div>
@@ -107,25 +91,25 @@
 
                 <div class="col">
                     <div class="py-2 py-lg-4 px-0 px-sm-3">
-                        <button class="btn w-100 py-3 py-md-5 fs-5 text-white fw-bolder jk-btn-gradient"
-                            name="answerBtn" id="answer_option_1"></button>
+                        <button class="btn w-100 py-3 py-md-5 text-white jk-btn" name="answerBtn"
+                            id="answer_option_1"></button>
                     </div>
 
                     <div class="py-2 py-lg-4 px-0 px-sm-3">
-                        <button class="btn w-100 py-3 py-md-5 fs-5 text-white fw-bolder jk-btn-gradient"
-                            name="answerBtn" id="answer_option_2"></button>
+                        <button class="btn w-100 py-3 py-md-5 text-white jk-btn" name="answerBtn"
+                            id="answer_option_2"></button>
                     </div>
                 </div>
 
                 <div class="col">
                     <div class="py-2 py-lg-4 px-0 px-sm-3">
-                        <button class="btn w-100 py-3 py-md-5 fs-5 text-white fw-bolder jk-btn-gradient"
-                            name="answerBtn" id="answer_option_3"></button>
+                        <button class="btn w-100 py-3 py-md-5 text-white jk-btn" name="answerBtn"
+                            id="answer_option_3"></button>
                     </div>
 
                     <div class="py-2 py-lg-4 px-0 px-sm-3">
-                        <button class="btn w-100 py-3 py-md-5 fs-5 text-white fw-bolder jk-btn-gradient"
-                            name="answerBtn" id="answer_option_4"></button>
+                        <button class="btn w-100 py-3 py-md-5 text-white jk-btn" name="answerBtn"
+                            id="answer_option_4"></button>
                     </div>
                 </div>
 
@@ -139,10 +123,10 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modal_title"></h5>
+                    <h5 class="modal-title" id="modalTitle"></h5>
                 </div>
-                <div class="modal-body" id="modal_body">
-                    <p class="fs-5" id="modal_text"></p>
+                <div class="modal-body">
+                    <p class="fs-5" id="modalText"></p>
                 </div>
             </div>
         </div>
@@ -154,16 +138,16 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="summary_title"></h5>
+                    <h5 class="modal-title" id="summaryTitle"></h5>
                 </div>
                 <div class="modal-body" id="modal_body">
-                    <p class="fs-5" id="summary_text">asdasdasdadssad</p>
-                    <p class="fs-5" id="summary_correct"></p>
-                    <p class="fs-5" id="summary_wrong"></p>
+                    <p class="fs-5" id="summaryText"></p>
+                    <p class="fs-5" id="summaryCorrect"></p>
+                    <p class="fs-5" id="summaryWrong"></p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Sulje</button>
-                    <button type="button" class="btn btn-primary" id="btn_play_again">Pelaa uudestaan</button>
+                    <button type="button" class="btn btn-primary" id="btnPlayAgain">Pelaa uudestaan</button>
                 </div>
             </div>
         </div>

@@ -1,16 +1,26 @@
 /* Jan-Erik Kämäräinen */
 
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto&display=swap");
+
 :root {
-    --color-bg: #303030;
-    --color-card: #505050;
-    --color-circle: #404040;
-    --color-circle-hover: #353535;
+    --color-bg: #ffffff;
+    --color-card: #5e84ca;
+    --color-circle: #2b4b88;
+    --color-circle-hover: #003663;
     --color-circle-hover-text: #6cbb11;
-    --color-text: #eeeeee;
+    --color-text: #000000;
 }
 
 body {
     background: var(--color-bg);
+    color: var(--color-text);
+}
+
+main {
+    font-family: "Roboto", sans-serif;
+}
+
+a {
     color: var(--color-text);
 }
 
