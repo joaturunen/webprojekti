@@ -295,16 +295,12 @@ $(function () {
     function calculateSummaryText() {
         if (correct_answers === 0) {
             $("#summaryText").html(summaryText.One);
-            console.log("0 oikeaa vastausta");
         } else if (correct_answers <= 2) {
             $("#summaryText").html(summaryText.Two);
-            console.log("2 tai vähemmän oikeaa vastausta");
-        } else if (correct_answers <= 4) {
+        } else if (correct_answers < 4) {
             $("#summaryText").html(summaryText.Three);
-            console.log("4 tai vähemmän oikeaa vastausta");
-        } else if (correct_answers <= 5) {
+        } else if (correct_answers >= 4) {
             $("#summaryText").html(summaryText.Four);
-            console.log("5 tai vähemmän oikeaa vastausta");
         }
     }
 

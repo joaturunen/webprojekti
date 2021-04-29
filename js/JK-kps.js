@@ -13,9 +13,9 @@ $(function () {
     };
 
     const Game = {
-        WIN: "Voitit!",
-        LOSE: "Hävisit!",
-        DRAW: "Tasapeli!",
+        WIN: "✔️ Voitit",
+        LOSE: "❌ Hävisit",
+        DRAW: "🔄 Tasapeli",
     };
 
     const Icon = [

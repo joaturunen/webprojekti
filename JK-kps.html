@@ -62,12 +62,23 @@
 
         <!-- Title -->
         <h1 class="my-4 text-center">Kivi, paperi ja sakset!</h1>
-        <div class="row row-cols-1 row-cols-md-2">
+        <div class="row row-cols-1">
+
+            <!-- Answer div -->
+            <div class="col my-4">
+                <div class="card py-3">
+                    <h2 class="mb-3 text-white" id="resultEl">Tulos</h2>
+                    <div class="col result-icon">
+                        <img class="img-fluid px-1 py-0" id="user-choice" draggable="false">
+                        <img class="img-fluid px-1 py-0" id="computer-choice" draggable="false">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rock, paper, scissors buttons -->
             <div class="col py-0 my-0 mb-3 mb-md-0">
                 <div class="card py-3">
                     <div class="card-body">
-
-                        <!-- Rock, paper, scissors buttons -->
                         <div class="d-flex flex-row justify-content-between flex-nowrap">
                             <div class="col mx-1 mx-lg-0">
                                 <button class="choice" name="rpsBtn" data-choice="0">
@@ -90,17 +101,6 @@
                                 </button>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Answer div -->
-            <div class="col">
-                <div class="card py-3">
-                    <h2 class="mb-3 text-white" id="resultEl">Tulos</h2>
-                    <div class="col result-icon">
-                        <img class="result-bg img-fluid px-1 py-0" id="user-choice" draggable="false">
-                        <img class="result-bg img-fluid px-1 py-0" id="computer-choice" draggable="false">
                     </div>
                 </div>
             </div>

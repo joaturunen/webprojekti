@@ -12,8 +12,8 @@
 body {
     /* Background gradient */
     background: linear-gradient(to top, #2e7fca 0%, #396499 100%);
-    background-size: 200% 200%;
-    background-repeat: no-repeat;
+    background-size: 300% 300%;
+    height: 100%;
 }
 
 main {
