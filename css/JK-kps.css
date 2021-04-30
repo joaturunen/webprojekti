@@ -3,25 +3,34 @@
 @import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap");
 
 :root {
-    --color-card: #004743;
-    --color-choice: #002f31;
+    --color-card: #00312f;
+    --color-choice: #003e41;
     --color-choice-hover: #002125;
     --color-text: #ffffff;
+    --color-link-hover: rgb(185, 185, 185);
 }
 
 body {
     /* Background gradient */
-    background: linear-gradient(to top, #093028, #237a57);
-    background-size: 100% 100%;
+    background: linear-gradient(to bottom, #0b3a30, #237a57);
+    background-size: 100% 200%;
     color: var(--color-text);
+    position: relative;
+    height: 100vh;
+    overflow-y: auto;
 }
 
-main {
+main,
+footer {
     font-family: "Patrick Hand", sans-serif;
 }
 
 a {
     color: var(--color-text);
+}
+
+a:hover {
+    color: var(--color-link-hover);
 }
 
 .card {
@@ -32,8 +41,11 @@ a {
     text-align: center;
 }
 
-.user-img {
-    font-size: 5em;
+.resultIcon {
+    display: none;
+    width: 3em;
+    height: 3em;
+    border: none;
 }
 
 .choice {
@@ -51,8 +63,16 @@ a {
     opacity: 0;
 }
 
+/*  Enable hover only on devices that supoort it.
+    This prevents button staying activated on mobile */
 @media (hover: hover) {
     .choice:hover {
         background-color: var(--color-choice-hover);
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .card {
+        align-items: center;
     }
 }

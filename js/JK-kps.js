@@ -13,15 +13,21 @@ $(function () {
     };
 
     const Game = {
-        WIN: "✔️ Voitit",
-        LOSE: "❌ Hävisit",
-        DRAW: "🔄 Tasapeli",
+        WIN: "Voitit",
+        LOSE: "Hävisit",
+        DRAW: "Tasapeli",
     };
 
-    const Icon = [
+    const Image = [
         "img/jan-erik/kivi.png",
         "img/jan-erik/paperi.png",
         "img/jan-erik/sakset.png",
+    ];
+
+    const Icon = [
+        "img/jan-erik/voitto.png",
+        "img/jan-erik/tasapeli.png",
+        "img/jan-erik/havio.png",
     ];
 
     const FADEIN_DURATION = 300;
@@ -71,27 +77,54 @@ $(function () {
         let userChoice = numToChoice(userNum);
 
         if (userChoice === Choice.ROCK) {
-            if (computerChoice === Choice.ROCK) printResult(Game.DRAW);
-            if (computerChoice === Choice.PAPER) printResult(Game.LOSE);
-            if (computerChoice === Choice.SCISSORS) printResult(Game.WIN);
+            if (computerChoice === Choice.ROCK) {
+                printResult(Game.DRAW);
+                printResultIcon(Game.DRAW);
+            }
+            if (computerChoice === Choice.PAPER) {
+                printResult(Game.LOSE);
+                printResultIcon(Game.LOSE);
+            }
+            if (computerChoice === Choice.SCISSORS) {
+                printResult(Game.WIN);
+                printResultIcon(Game.WIN);
+            }
 
-            printIcon(userNum, computerNum);
+            printResultImages(userNum, computerNum);
         }
 
         if (userChoice === Choice.PAPER) {
-            if (computerChoice === Choice.ROCK) printResult(Game.WIN);
-            if (computerChoice === Choice.PAPER) printResult(Game.DRAW);
-            if (computerChoice === Choice.SCISSORS) printResult(Game.LOSE);
+            if (computerChoice === Choice.ROCK) {
+                printResult(Game.WIN);
+                printResultIcon(Game.WIN);
+            }
+            if (computerChoice === Choice.PAPER) {
+                printResult(Game.DRAW);
+                printResultIcon(Game.DRAW);
+            }
+            if (computerChoice === Choice.SCISSORS) {
+                printResult(Game.LOSE);
+                printResultIcon(Game.LOSE);
+            }
 
-            printIcon(userNum, computerNum);
+            printResultImages(userNum, computerNum);
         }
 
         if (userChoice === Choice.SCISSORS) {
-            if (computerChoice === Choice.ROCK) printResult(Game.LOSE);
-            if (computerChoice === Choice.PAPER) printResult(Game.WIN);
-            if (computerChoice === Choice.SCISSORS) printResult(Game.DRAW);
+            if (computerChoice === Choice.ROCK) {
+                printResult(Game.LOSE);
+                printResultIcon(Game.LOSE);
+            }
+            if (computerChoice === Choice.PAPER) {
+                printResult(Game.WIN);
+                printResultIcon(Game.WIN);
+            }
+            if (computerChoice === Choice.SCISSORS) {
+                printResult(Game.DRAW);
+                printResultIcon(Game.DRAW);
+            }
 
-            printIcon(userNum, computerNum);
+            printResultImages(userNum, computerNum);
         }
     }
 
@@ -109,16 +142,40 @@ $(function () {
     /**
      * Prints the rock paper scissors images
      *
-     * @param {Number} userNum - Number between 0-2
-     * @param {Number} computerNum - Number between 0-2
+     * @param {Number} userNum - User choice between 0-2
+     * @param {Number} computerNum - Computer choice between 0-2
      */
-    function printIcon(userNum, computerNum) {
+    function printResultImages(userNum, computerNum) {
         $("#user-choice").fadeOut(FADEOUT_DURATION, function () {
-            $(this).attr("src", Icon[userNum]).fadeIn(FADEIN_DURATION);
+            $(this).attr("src", Image[userNum]).fadeIn(FADEIN_DURATION);
         });
 
         $("#computer-choice").fadeOut(FADEOUT_DURATION, function () {
-            $(this).attr("src", Icon[computerNum]).fadeIn(FADEIN_DURATION);
+            $(this).attr("src", Image[computerNum]).fadeIn(FADEIN_DURATION);
+        });
+    }
+
+    /**
+     *
+     * @param {string} result - Result string from Game object
+     */
+    function printResultIcon(result) {
+        let icon;
+
+        if (result === Game.WIN) {
+            icon = Icon[0];
+        }
+
+        if (result === Game.DRAW) {
+            icon = Icon[1];
+        }
+
+        if (result === Game.LOSE) {
+            icon = Icon[2];
+        }
+
+        $("#resultIcon").fadeOut(FADEOUT_DURATION, function () {
+            $(this).attr("src", icon).fadeIn(FADEIN_DURATION);
         });
     }
 

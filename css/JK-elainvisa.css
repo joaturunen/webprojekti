@@ -11,9 +11,11 @@
 
 body {
     /* Background gradient */
-    background: linear-gradient(to top, #2e7fca 0%, #396499 100%);
+    background: linear-gradient(to bottom, #396499 0%, #2e7fca 100%);
     background-size: 300% 300%;
-    height: 100%;
+    position: relative;
+    height: 100vh;
+    overflow-y: auto;
 }
 
 main {

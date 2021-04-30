@@ -275,11 +275,11 @@ $(function () {
         $("#summaryTitle").html("Peli päättyi!");
 
         $("#summaryCorrect").html(
-            `Oikeita vastauksia: <span class="badge bg-success">${correct_answers}</span>`
+            `Oikein: <span class="badge bg-success">${correct_answers}</span>`
         );
 
         $("#summaryWrong").html(
-            `Vääriä vastauksia: <span class="badge bg-danger">${wrong_answers}</span>`
+            `Väärin: <span class="badge bg-danger">${wrong_answers}</span>`
         );
 
         summaryModal.show();
