@@ -2,6 +2,7 @@
 
 main {
   margin: 0;
+  background-color: white;
 }
 
 .taulu {
@@ -25,17 +26,17 @@ main {
 }
 
 .front {
-  background-color: rgb(119, 238, 188);
+  background-color: white;
 }
 
 .back {
-  background-color: rgb(127, 203, 253);
+  background-color: white;
 } 
 
 /* vastausnapit */
 
 .btn-group .vastausnappi {
-  background-color: mintcream;
+  background-color: white;
   border: 1px solid;
   border-radius: 8px;
   padding: 15px 32px;
@@ -49,7 +50,7 @@ main {
 }
 
 .vastausnappi:hover {
-  background-color: rgb(167, 245, 212);
+  background-color: grey;
 }
 
 /* pallurat */
@@ -67,7 +68,7 @@ main {
 /* prev, next, start, try next napit */
 
 .nappula {
-  background-color: mintcream;
+  background-color: white;
   border: 1px solid;
   border-radius: 8px;
   padding: 5px 8px;
@@ -81,17 +82,17 @@ main {
 }
 
 .nappula:hover {
-  background-color: rgb(167, 245, 212);
+  background-color: grey;
 }
 
 /* right ja wrong classit */ 
 
 .right {
-  background-color: rgb(35, 228, 115);
+  background-color: red;
 }
 
 .wrong {
-  background-color: rgb(243, 47, 47);
+  background-color: green;
 }
 
 /* lopputulosruutu */
@@ -101,5 +102,5 @@ main {
   height: 300px;
   border: 2px solid black;
   border-radius: 8px;
-  background-color: rgb(119, 238, 188);
+  background-color: white;
 }
