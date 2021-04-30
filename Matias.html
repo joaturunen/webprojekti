@@ -2,15 +2,16 @@
 <html lang="en">
 
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>DEUTCH LUSTIG
-        </title>
-        <meta content="Matias Hurtamo" name="author">
-        <link rel="stylesheet" href="css/bootstrap.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Was ist das?
+    </title>
+    <meta content="Matias Hurtamo" name="author">
+    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/index.css">
-    </head>
+    <link rel="stylesheet" href="css/Matias.css">
+</head>
 
 
 
@@ -59,66 +60,97 @@
         </nav>
     </header>
 
-    <main class="container-fluid">
-<h1>TBD</h1>
-<section class="row">
-<div class="col">
-<figure>
-    <img src="img/imgMH/charles-deluvio-ieEv01cucy0-unsplash.jpg"
-</figure>
-</div>
+    <main
+        class="container-fluid vh-100 vw-100 d-flex row row-cols-1 text-center align-items-center justify-content-center">
+        <!-- Kysymys painikkeet, kuvat, oikeat vastaukset ja väärät vastaukset --->
+        <div id="qcontainer" class="invis qcontainer col">
+            <div>
+                <h1 id="question"></h1>
 
-<div class="col"> </div>
-
-<div class="col">
-    <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="Der_hund" value="option1">
-        <label class="form-check-label" for="inlineCheckbox1">Der hund</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="doger" value="option2">
-        <label class="form-check-label" for="inlineCheckbox2">Das doger</label>
-      </div>
-
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="hunden" value="option3">
-        <label class="form-check-label" for="inlineCheckbox1">die hunden</label>
-      </div>
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="dog" value="option4">
-        <label class="form-check-label" for="inlineCheckbox2">der dog</label>
-      </div>
-      
-</div>
-
-</section>
+            </div>
 
 
+            <figure id="image">
+
+            </figure>
+
+            <div id="abuttons" class="py-1 py-lg-3 px-0 px-sm-2 ">
+
+            </div>
+            <div>
+                <p class="text-success">Oikeat Vastaukset:<span id="correct_a" class="badge bg-success"></span></p>
+                <p class="text-danger">Väärät Vastaukset:<span id="wrong_a" class="badge bg-danger"></span></p>
+            </div>
+        </div>
+        <!---Aloitus painike-->
+        <div>
+
+            <button id="start-btn"
+                class="btn btn-primary fs-1 fw-bolder cbutton">Aloita</button>
+       </div>
+        <!--Endscreen-->
+        <div id="endscreen" class="col invis endscreen">
+            <div>
+                <h1 id="score"></h1>
+            </div>
+
+
+            <div class="btn-group-vertical" role="group">
+
+                <button id="play-again" class="btn btn-primary w-100 m-2">Pelaa uudestaan</button>
+                <button id="Vastaukset" class="btn btn-secondary w-100 m-2">Vastaukset</button>
+
+                <a href="index.html" class="btn btn-danger w-100 active m-2" role="button" aria-pressed="true">Poistu
+                    pelistä</a>
+
+            </div>
+
+        </div>
 
 
 
+        <footer class="col">
+            <div class="text-center">
+                <p>&copy Matias Hurtamo</p>
+            </div>
+            <div class="text-center">
+                <p>2021</p>
+            </div>
+            </section>
+    </main>
+    <!--Vastaus modaali-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
 
+                <div class="modal-body">
+                    <h1>Vastaukset</h1>
+                    <ul>
+                        <li>Koira = der Hund</li>
+                        <li>Omena = der Apfel</li>
+                        <li>Auto = das Auto</li>
+                        <li>Makkara = die Wurst</li>
+                        <li>Polkupyörä = das Fahrrad</li>
+                    </ul>
 
+                </div>
+                <div class="modal-footer">
 
-
-<footer>
-    <div class="text-center">
-        <p>Matias Hurtamo</p>
+                    <button id="Poistu" class="btn btn-primary btn-lg">Poistu</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="text-center">
-        <p>2021</p>
-    </div>
-</footer>
 
-
-</main>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
-integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
-crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
-integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
-crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+        integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
+        crossorigin="anonymous"></script>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="js/Matias.js"></script>
 </body>
 
 
