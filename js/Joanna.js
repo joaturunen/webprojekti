@@ -1,83 +1,98 @@
 
-
+// Joanna Turunen
 
 // kysymykset
 
-const kysymykset = [
-    {
-        kysymys: "______ does it cost?",
-        vastaukset: ["How", "How much", "What", "How many"],
-        oikeaNro: 2
-    },
-    {
-        kysymys: "______ does the lesson start?",
-        vastaukset: ["Where", "What", "Which", "When"],
-        oikeaNro: 4
-    },
-    {
-        kysymys: "______ far is your home from the school?",
-        vastaukset: ["Which", "What", "How", "Why"],
-        oikeaNro: 3
-    },
-    {
-        kysymys: "______ do you like eating?",
-        vastaukset: ["Where", "Who", "How many", "What"],
-        oikeaNro: 4
-    },
-    {
-        kysymys: "______ didn't you come yesterday?",
-        vastaukset: ["Why", "Who", "What", "How"],
-        oikeaNro: 1
-    },
-];
-
-const kysymys_maara = kysymykset.length;
-const SEURAAVA_KYSYMYS = 400;
-
-const vastausNapinNumerot = [
-    "vastaus_1",
-    "vastaus_2",
-    "vastaus_3",
-    "vastaus_4"
-];
-
-let peliLoppu = false;
-let kysNro = 0;
-let oikeat = 0;
-let vaarat = 0;
-let kysymysData;
-let kysymys;
-let oikeaNro;
-let oikeaVastaus;
+"use strict";
 
 $(function () {
+        
+    const kysymykset = [
+        {
+            kysymys: "______ does it cost?",
+            vastaukset: ["How", "How much", "What", "How many"],
+            oikeaNro: 1
+        },
+        {
+            kysymys: "______ does the lesson start?",
+            vastaukset: ["Where", "What", "Which", "When"],
+            oikeaNro: 3
+        },
+        {
+            kysymys: "______ far is your home from the school?",
+            vastaukset: ["Which", "What", "How", "Why"],
+            oikeaNro: 2
+        },
+        {
+            kysymys: "______ do you like eating?",
+            vastaukset: ["Where", "Who", "How many", "What"],
+            oikeaNro: 3
+        },
+        {
+            kysymys: "______ didn't you come yesterday?",
+            vastaukset: ["Why", "Who", "What", "How"],
+            oikeaNro: 0
+        },
+    ];
 
-    if (peliLoppu === false) {
+    const palauteTeksti = {
+        alin: "Harjoittele vielä!", 
+        keski: "Osasit melko hyvin!",
+        ylin: "Mahtavaa, osasit hienosti!"
+    };
+
+
+    const kysymys_maara = kysymykset.length;
+
+    const vastausNapinNumerot = [
+        "vastaus_1",
+        "vastaus_2",
+        "vastaus_3",
+        "vastaus_4"
+    ];
+
+    let initCompleted = false;
+    let kysNro = 0;
+    let oikeat = 0;
+    let vaarat = 0;
+    let kysymysData;
+    let kysymys;
+    let oikeaNro;
+    let oikeaVastaus;
+
+
+    if (initCompleted === false) {
         init();
     }
+    
+    $("#tulosruutu").hide();
 
-    // eka kysymys ja klikinkäsittely
     function init() {
         seuraava();
+        $("#kysymyscardi").show();
         clickHandler();
-        peliLoppu = true;
+        initCompleted = true;
+    
     }
+
+    $("#next").on('click', function() {
+        kysNro++;
+        $("#card").flip(false);
+        if (kysNro >= kysymys_maara) {
+            naytaTulos();
+        } else {
+            init();
+        }
+    })
 
     // näytä seuraava kysymys
     function seuraava() {
-        if (peliLoppu) kysNro++;
+        kysymysData = kysymykset[kysNro];
+        kysymys = kysymysData.kysymys;
+        oikeaNro = kysymysData.oikeaNro;
+        oikeaVastaus = kysymysData.vastaukset[oikeaNro];
 
-        if (kysNro >= kysymys_maara) {
-            tulostaTulos();
-        } else {
-            kysymysData = kysymykset[kysNro];
-            kysymys = kysymysData.kysymys;
-            oikeaNro = kysymysData.oikeaNro;
-            oikeaVastaus = kysymysData.vastaukset[oikeaNro];
-
-            //resetInput();
-            asetaKysymys();
-        }
+        asetaKysymys();
     }
 
     // kysymyksen tulostus html:n
@@ -87,12 +102,6 @@ $(function () {
         for ( let i=0; i <= vastausNapinNumerot.length; i++) {
             $(`#${vastausNapinNumerot[i]}`).html(kysymysData.vastaukset[i]);
         }
-
-        // if (!peliLoppu) {
-        //     for (let i=0; i < kysymys_maara; i++) {
-
-        //     }
-        // }
     }
 
     // vastausnapin klikkaus
@@ -111,23 +120,20 @@ $(function () {
     * @param {String} oikeaVastaus
     */
 
+    // vastauksen tarkistaminen
     function tarkistaVastaus(vastausNappi, oikeaVastaus) {
 
         if (vastausNappi.text() === oikeaVastaus) {
-            // tulosta meni oikein
-            $("[name=pallura]").addClass(".right");
-            $("#palaute").html("Hienoa, vastasit oikein!");
             oikeat++;
+            $(`[name=pallura]:eq(${kysNro})`).addClass("right");
+            $("#palaute").html("Hienoa, vastasit oikein!");
+            
         } else {
-            // tulosta meni väärin
-            $(".pallura").addClass(".wrong");
-            $("#palaute").html("Oi voi, vastaus meni väärin.");
             vaarat++;
+            $(`[name=pallura]:eq(${kysNro})`).addClass("wrong");
+            $("#palaute").html("Oi voi, vastaus meni väärin.");
+            
         }
-
-        setTimeout(() => {
-            seuraava();
-        }, SEURAAVA_KYSYMYS);
     }
 
     // kortin kääntö
@@ -135,21 +141,32 @@ $(function () {
         trigger: 'manual'
     });
 
+    function naytaTulos() {
+        $("#kysymyscardi").hide();
+        $("#tulosruutu").show();
 
-    // vaihda palluran väri
+        laskePalaute();
+        
 
-    /** 
-     * @param {string} vari
-    */
+        $("#oikeat").append(oikeat);
+        $("#vaarat").append(vaarat);
 
-    // function varitaPallura(vari) {
-    //     let pallura = $(`[name=pallura]:eq(${kysNro})`);
+        $("#startAgain").on('click', function() {
+            location.reload();
+        })
+    }
 
-    //     $(pallura).addClass(vari);
-    //     //$(pallura).addClass(".wrong");
-    // }
+    function laskePalaute() {
+        if(oikeat <= 1) {
+            $("#lopputulos").html(palauteTeksti.alin);
+        } else if(oikeat === 3) {
+            $("#lopputulos").html(palauteTeksti.keski);
+        } else if(oikeat >= 4) {
+            $("#lopputulos").html(palauteTeksti.ylin);
+        }
+    }
 
-    
+
     
 
 })

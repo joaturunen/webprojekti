@@ -67,16 +67,18 @@
                 <div>
                     <h1>Question words</h1>
                 </div>
-                <div>
+                <div id="pallurat">
+                    <span class="dot" name="pallura" id="pallura_0"></span>
                     <span class="dot" name="pallura" id="pallura_1"></span>
                     <span class="dot" name="pallura" id="pallura_2"></span>
                     <span class="dot" name="pallura" id="pallura_3"></span>
                     <span class="dot" name="pallura" id="pallura_4"></span>
-                    <span class="dot" name="pallura" id="pallura_5"></span>
                 </div>
+                
+                
             </div>
 
-            <div class="taulu text-center">
+            <div class="taulu text-center" id="kysymyscardi">
                 <!-- flipcard  -->
                 <div class="card" id="card">
                     <div class="front">
@@ -92,11 +94,22 @@
                             <button class="vastausnappi" name="vastausNappi" id="vastaus_4"></button>
                         </div>
                     </div>
-                    <div class="back" name="taustainfo">
+                    <div class="back" name="tausta">
                         <h2 id="palaute"></h2>
                         <h2 id="oikeaVastaus"></h2>
+                        <div class="btn-group">
+                            <button class="nappula" id="prev">Prev</button>
+                            <button class="nappula" id="next">Next</button>
+                        </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="tulosruutu" id="tulosruutu">
+                <h2 id="lopputulos"></h2>
+                <h5 id="oikeat">Sait oikein </h5>
+                <h5 id="vaarat">Väärin meni </h5>
+                <button class="nappula" id="startAgain">Start again</button>
             </div>
         </div>
     </main>

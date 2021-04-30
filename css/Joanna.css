@@ -11,6 +11,7 @@ main {
 }
 
 /* cardit */
+
 .card {
   width: 100%;
   height: 300px;
@@ -52,6 +53,7 @@ main {
 }
 
 /* pallurat */
+
 .dot {
   height: 25px;
   width: 25px;
@@ -62,11 +64,42 @@ main {
   
 }
 
+/* prev, next, start, try next napit */
+
+.nappula {
+  background-color: mintcream;
+  border: 1px solid;
+  border-radius: 8px;
+  padding: 5px 8px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  width: 80%;
+  display: block;
+  margin: 2px;
+}
+
+.nappula:hover {
+  background-color: rgb(167, 245, 212);
+}
+
 /* right ja wrong classit */ 
+
 .right {
   background-color: rgb(35, 228, 115);
 }
 
 .wrong {
   background-color: rgb(243, 47, 47);
+}
+
+/* lopputulosruutu */
+
+.tulosruutu {
+  width: 100%;
+  height: 300px;
+  border: 2px solid black;
+  border-radius: 8px;
+  background-color: rgb(119, 238, 188);
 }
