@@ -12,42 +12,47 @@ const questions = [
         answers: ["Kissa", "Leopardi", "Leijona", "Susi"],
         correctIndex: 2,
         image: "img/jan-erik/leijona.jpg",
-        //https://pixabay.com/fi/photos/lion-petoel%C3%A4in-vaarallinen-harja-3372720/
+        imageSrc:
+            "https://pixabay.com/fi/photos/lion-petoel%C3%A4in-vaarallinen-harja-3372720/",
     },
     {
         question: "Mikä eläin tämä on?",
         answers: ["Laama", "Alligaattori", "Virtahepo", "Norsu"],
         correctIndex: 3,
         image: "img/jan-erik/norsu.jpg",
-        // https://pixabay.com/fi/photos/norsu-el%C3%A4inten-safari-nis%C3%A4k%C3%A4s-114543/
+        imageSrc:
+            "https://pixabay.com/fi/photos/norsu-el%C3%A4inten-safari-nis%C3%A4k%C3%A4s-114543/",
     },
     {
         question: "Mikä eläin tämä on?",
         answers: ["Jääkarhu", "Panda", "Karhu", "Laiskiainen"],
         correctIndex: 1,
         image: "img/jan-erik/panda.jpg",
-        // https://pixabay.com/fi/photos/panda-uhanalainen-harvinaisten-505149/
+        imageSrc:
+            "https://pixabay.com/fi/photos/panda-uhanalainen-harvinaisten-505149/",
     },
     {
         question: "Mikä eläin tämä on?",
         answers: ["Seepra", "Kameli", "Kirahvi", "Hirvi"],
         correctIndex: 2,
         image: "img/jan-erik/kirahvi.jpg",
-        // https://pixabay.com/fi/photos/kirahvi-el%C3%A4inten-safari-5800387/
+        imageSrc:
+            "https://pixabay.com/fi/photos/kirahvi-el%C3%A4inten-safari-5800387/",
     },
     {
         question: "Mikä eläin tämä on?",
         answers: ["Ilves", "Gepardi", "Tiikeri", "Hyeena"],
         correctIndex: 0,
         image: "img/jan-erik/ilves.jpg",
-        // https://pixabay.com/fi/photos/predator-kissa-el%C3%A4inkunnan-4432461/
+        imageSrc:
+            "https://pixabay.com/fi/photos/predator-kissa-el%C3%A4inkunnan-4432461/",
     },
 ];
 
 $(function () {
     const QUESTION_AMOUNT = questions.length;
-    //const NEXT_QUESTION_DELAY = 1800;
-    const NEXT_QUESTION_DELAY = 500;
+    const NEXT_QUESTION_DELAY = 1000;
+    const ANIMATION_DURATION = 1000;
 
     const btnAnswerIds = [
         "answer_option_1",
@@ -100,6 +105,7 @@ $(function () {
      * Gets the first question and sets the click handler
      */
     function init() {
+        $(".animateOnLoad").animate({ opacity: "1" }, ANIMATION_DURATION);
         nextQuestion();
         clickHandler();
         initCompleted = true;
@@ -133,6 +139,7 @@ $(function () {
     function initElements() {
         $("#questionIndex").html(`${questionIndex + 1}/${QUESTION_AMOUNT}`);
         $("#question").html(question);
+        $("#questionImageSource").attr("href", questionObj.imageSrc);
         $("#questionImage").attr("src", image);
         for (let i = 0; i <= btnAnswerIds.length; i++) {
             $(`#${btnAnswerIds[i]}`).html(questionObj.answers[i]);
@@ -242,16 +249,16 @@ $(function () {
      * @param {string} correctAnswer - Correct question answer
      */
     function showWrongOrCorrectModal(answerBoolean, correctAnswer) {
-        $("#modal_text").html(`Eläin on ${correctAnswer.toLowerCase()}.`);
+        $("#modalText").html(`Eläin on ${correctAnswer.toLowerCase()}.`);
 
         if (answerBoolean) {
-            $("#modal_title").html("Oikein!");
-            $("#modal_title").prepend(
+            $("#modalTitle").html("Oikein!");
+            $("#modalTitle").prepend(
                 `<i class="fa fa-check text-success pe-2" aria-hidden="true"></i>`
             );
         } else {
-            $("#modal_title").html("Väärin!");
-            $("#modal_title").prepend(
+            $("#modalTitle").html("Väärin!");
+            $("#modalTitle").prepend(
                 `<i class="fa fa-times text-danger pe-2" aria-hidden="true"></i>`
             );
         }
@@ -265,19 +272,19 @@ $(function () {
     function showsummaryModal() {
         calculateSummaryText();
 
-        $("#summary_title").html("Peli päättyi!");
+        $("#summaryTitle").html("Peli päättyi!");
 
-        $("#summary_correct").html(
-            `Oikeita vastauksia: <span class="badge bg-success">${correct_answers}</span>`
+        $("#summaryCorrect").html(
+            `Oikein: <span class="badge bg-success">${correct_answers}</span>`
         );
 
-        $("#summary_wrong").html(
-            `Vääriä vastauksia: <span class="badge bg-danger">${wrong_answers}</span>`
+        $("#summaryWrong").html(
+            `Väärin: <span class="badge bg-danger">${wrong_answers}</span>`
         );
 
         summaryModal.show();
 
-        $("#btn_play_again").on("click", function () {
+        $("#btnPlayAgain").on("click", function () {
             location.reload();
         });
     }
@@ -287,17 +294,13 @@ $(function () {
      */
     function calculateSummaryText() {
         if (correct_answers === 0) {
-            $("#summary_text").html(summaryText.One);
-            console.log("0 oikeaa vastausta");
+            $("#summaryText").html(summaryText.One);
         } else if (correct_answers <= 2) {
-            $("#summary_text").html(summaryText.Two);
-            console.log("2 tai vähemmän oikeaa vastausta");
-        } else if (correct_answers <= 4) {
-            $("#summary_text").html(summaryText.Three);
-            console.log("4 tai vähemmän oikeaa vastausta");
-        } else if (correct_answers <= 5) {
-            $("#summary_text").html(summaryText.Four);
-            console.log("5 tai vähemmän oikeaa vastausta");
+            $("#summaryText").html(summaryText.Two);
+        } else if (correct_answers < 4) {
+            $("#summaryText").html(summaryText.Three);
+        } else if (correct_answers >= 4) {
+            $("#summaryText").html(summaryText.Four);
         }
     }
 

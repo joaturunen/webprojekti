@@ -1,0 +1,93 @@
+/* Jan-Erik Kämäräinen */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto&display=swap");
+
+:root {
+    --color-white-transparent: rgb(255, 255, 255, 0.5);
+    --color-blue: #467ce0;
+    --color-btn: #467ce0;
+    --color-btn-hover: #355ba3;
+}
+
+body {
+    /* Background gradient */
+    background: linear-gradient(to bottom, #396499 0%, #2e7fca 100%);
+    background-size: 300% 300%;
+    position: relative;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+main {
+    font-family: "Roboto", sans-serif;
+}
+
+.container {
+    background-color: var(--color-white-transparent) !important;
+    border-radius: 10px;
+}
+
+.card {
+    border-style: none !important;
+}
+
+/* Class to animate elements on page load */
+.animateOnLoad {
+    opacity: 0;
+}
+
+#questionImage {
+    width: 55rem !important;
+}
+
+.jk-badge-blue {
+    background-color: #467ce0;
+}
+
+/* Answer button */
+.jk-btn {
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.03rem;
+    background-color: var(--color-btn);
+    text-align: center;
+    border-radius: 6px;
+    background-size: 200% auto;
+    display: block;
+}
+
+/* Gradient for correct answer button */
+.jk-btn-gradient-correct {
+    background: linear-gradient(
+        to right,
+        #548548 0%,
+        #446941 51%,
+        #53ac71 100%
+    );
+    text-align: center;
+    border-radius: 6px;
+    background-size: 200% auto;
+    display: block;
+}
+
+/* Gradient for wrong answer button */
+.jk-btn-gradient-wrong {
+    background: linear-gradient(
+        to right,
+        #d63d3d 0%,
+        #642121 51%,
+        #9c2d2d 100%
+    );
+    text-align: center;
+    border-radius: 6px;
+    background-size: 200% auto;
+    display: block;
+}
+
+/*  Enable hover only on devices that supoort it.
+    This prevents button staying activated on mobile */
+@media (hover: hover) {
+    .jk-btn:hover {
+        background-color: var(--color-btn-hover);
+    }
+}

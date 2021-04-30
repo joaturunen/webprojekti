@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/JK-kps.css">
 </head>
 
-<body class="h-100">
+<body>
     <header>
         <div>
             <!-- tähän joku banneri jos jaksaa-->
@@ -34,7 +34,7 @@
                             <a class="nav-link" href="Matias.html">Matiaksen peli</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Jan-Erik.html">Eläinvisa</a>
+                            <a class="nav-link" href="JK-elainvisa.html">Eläinvisa</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="JK-kps.html">Kivi, paperi ja sakset</a>
@@ -52,58 +52,68 @@
                             <a class="nav-link" href="Tietoja.html">Tietoja</a>
                         </li>
                     </ul>
-
                 </div>
             </div>
         </nav>
     </header>
 
-    <main class="container mb-5">
-        <h3 class="my-4 text-center">Kivi, paperi ja sakset!</h3>
-        <div class="row row-cols-1 row-cols-md-2">
-            <div class="col py-0 my-0 mb-3 mb-md-0">
-                <div class="card py-3">
-                    <div class="card-body">
+    <main class="container pb-5 animateOnLoad">
 
-                        <div class="d-flex flex-row justify-content-between flex-nowrap">
+        <!-- Title -->
+        <h1 class="my-4 text-center">Kivi, paperi ja sakset!</h1>
+        <div class="row row-cols-1 ">
 
-                            <div class="col mx-1 mx-lg-0">
-                                <button class="choice" name="rpsBtn" data-choice="0">
-                                    <img class="img-fluid" src="img/jan-erik/kivi.png" alt="Kivi">
-                                </button>
-                            </div>
-
-                            <div class="col mx-1 mx-lg-0">
-                                <button class="choice" name="rpsBtn" data-choice="1">
-                                    <img class="img-fluid" src="img/jan-erik/paperi.png" alt="Paperi">
-                                </button>
-                            </div>
-
-                            <div class="col mx-1 mx-lg-0">
-                                <button class="choice" name="rpsBtn" data-choice="2">
-                                    <img class="img-fluid" src="img/jan-erik/sakset.png" alt="Sakset">
-                                </button>
-                            </div>
-
+            <!-- Result div -->
+            <div class="col my-4">
+                <div class="card align-items-center py-3">
+                    <img class="resultIcon mb-1" id="resultIcon" aria-hidden="true"></img>
+                    <h2 class="mb-3 text-white" id="resultEl">Tulos</h2>
+                    <div class="row col">
+                        <div class="col px-md-4">
+                            <img class="img-fluid px-1 py-0" id="user-choice" draggable="false">
+                            <p>Minä</p>
+                        </div>
+                        <div class="col px-md-4">
+                            <img class="img-fluid px-1 py-0" id="computer-choice" draggable="false">
+                            <p>Tietokone</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col">
+            <!-- Rock, paper, scissors buttons -->
+            <div class="col py-0 my-0 mb-3 mb-md-0">
                 <div class="card py-3">
-                    <h2 class="mb-3" id="resultEl">Tulos</h2>
-                    <div class="col result-icon">
-                        <img src="img/jan-erik/placeholder.jpg" class="img-fluid px-1 py-0" id="user-choice">
-                        <img src="img/jan-erik/placeholder.jpg" class="img-fluid px-1 py-0" id="computer-choice">
+                    <div class="card-body">
+                        <div class="d-flex flex-row justify-content-between flex-nowrap">
+                            <div class="col mx-1 mx-lg-3">
+                                <button class="choice" name="rpsBtn" data-choice="0">
+                                    <img class="img-fluid" name="rpsImg" src="img/jan-erik/kivi.png" alt="Kivi"
+                                        draggable="false">
+                                </button>
+                            </div>
+
+                            <div class="col mx-1 mx-lg-3">
+                                <button class="choice" name="rpsBtn" data-choice="1">
+                                    <img class="img-fluid" name="rpsImg" src="img/jan-erik/paperi.png" alt="Paperi"
+                                        draggable="false">
+                                </button>
+                            </div>
+
+                            <div class="col mx-1 mx-lg-3">
+                                <button class="choice" name="rpsBtn" data-choice="2">
+                                    <img class="img-fluid" name="rpsImg" src="img/jan-erik/sakset.png" alt="Sakset"
+                                        draggable="false">
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </main>
 
-    <footer class="text-center">
+    <footer class="text-center animateOnLoad">
         <div>
             <p>&copy Jan-Erik Kämäräinen</p>
         </div>
@@ -111,11 +121,21 @@
             <p>2021</p>
         </div>
         <div>
-            <a class="link-light" href="https://github.com/googlefonts/noto-emoji/blob/main/LICENSE">Google Noto emojien
+            <a href="https://github.com/googlefonts/noto-emoji/blob/main/LICENSE">Google Noto emojien
+                lisenssi</a>
+        </div>
+        <div>
+            <a href="https://github.com/twitter/twemoji/blob/master/LICENSE-GRAPHICS">Twemoji emojien
                 lisenssi</a>
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+        integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js"
+        integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc"
+        crossorigin="anonymous"></script>
     <script src="js/jquery-3.6.0.js" defer></script>
     <script src="js/JK-kps.js" defer></script>
 </body>

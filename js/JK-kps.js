@@ -13,19 +13,28 @@ $(function () {
     };
 
     const Game = {
-        WIN: "Voitit!",
-        LOSE: "Hävisit!",
-        DRAW: "Tasapeli!",
+        WIN: "Voitit",
+        LOSE: "Hävisit",
+        DRAW: "Tasapeli",
     };
 
-    const Icon = [
+    const Image = [
         "img/jan-erik/kivi.png",
         "img/jan-erik/paperi.png",
         "img/jan-erik/sakset.png",
     ];
 
+    const Icon = [
+        "img/jan-erik/voitto.png",
+        "img/jan-erik/tasapeli.png",
+        "img/jan-erik/havio.png",
+    ];
+
     const FADEIN_DURATION = 300;
     const FADEOUT_DURATION = 150;
+    const PAGE_LOAD_ANIMATION_DURATION = 1000;
+
+    $(".animateOnLoad").animate({ opacity: "1" }, PAGE_LOAD_ANIMATION_DURATION);
 
     /**
      * Handles the choice button click
@@ -68,27 +77,54 @@ $(function () {
         let userChoice = numToChoice(userNum);
 
         if (userChoice === Choice.ROCK) {
-            if (computerChoice === Choice.ROCK) printResult(Game.DRAW);
-            if (computerChoice === Choice.PAPER) printResult(Game.LOSE);
-            if (computerChoice === Choice.SCISSORS) printResult(Game.WIN);
+            if (computerChoice === Choice.ROCK) {
+                printResult(Game.DRAW);
+                printResultIcon(Game.DRAW);
+            }
+            if (computerChoice === Choice.PAPER) {
+                printResult(Game.LOSE);
+                printResultIcon(Game.LOSE);
+            }
+            if (computerChoice === Choice.SCISSORS) {
+                printResult(Game.WIN);
+                printResultIcon(Game.WIN);
+            }
 
-            printIcon(userNum, computerNum);
+            printResultImages(userNum, computerNum);
         }
 
         if (userChoice === Choice.PAPER) {
-            if (computerChoice === Choice.ROCK) printResult(Game.WIN);
-            if (computerChoice === Choice.PAPER) printResult(Game.DRAW);
-            if (computerChoice === Choice.SCISSORS) printResult(Game.LOSE);
+            if (computerChoice === Choice.ROCK) {
+                printResult(Game.WIN);
+                printResultIcon(Game.WIN);
+            }
+            if (computerChoice === Choice.PAPER) {
+                printResult(Game.DRAW);
+                printResultIcon(Game.DRAW);
+            }
+            if (computerChoice === Choice.SCISSORS) {
+                printResult(Game.LOSE);
+                printResultIcon(Game.LOSE);
+            }
 
-            printIcon(userNum, computerNum);
+            printResultImages(userNum, computerNum);
         }
 
         if (userChoice === Choice.SCISSORS) {
-            if (computerChoice === Choice.ROCK) printResult(Game.LOSE);
-            if (computerChoice === Choice.PAPER) printResult(Game.WIN);
-            if (computerChoice === Choice.SCISSORS) printResult(Game.DRAW);
+            if (computerChoice === Choice.ROCK) {
+                printResult(Game.LOSE);
+                printResultIcon(Game.LOSE);
+            }
+            if (computerChoice === Choice.PAPER) {
+                printResult(Game.WIN);
+                printResultIcon(Game.WIN);
+            }
+            if (computerChoice === Choice.SCISSORS) {
+                printResult(Game.DRAW);
+                printResultIcon(Game.DRAW);
+            }
 
-            printIcon(userNum, computerNum);
+            printResultImages(userNum, computerNum);
         }
     }
 
@@ -104,14 +140,62 @@ $(function () {
     }
 
     /**
+     * Prints the rock paper scissors images
+     *
+     * @param {Number} userNum - User choice between 0-2
+     * @param {Number} computerNum - Computer choice between 0-2
+     */
+    function printResultImages(userNum, computerNum) {
+        $("#user-choice").fadeOut(FADEOUT_DURATION, function () {
+            $(this).attr("src", Image[userNum]).fadeIn(FADEIN_DURATION);
+        });
+
+        $("#computer-choice").fadeOut(FADEOUT_DURATION, function () {
+            $(this).attr("src", Image[computerNum]).fadeIn(FADEIN_DURATION);
+        });
+    }
+
+    /**
+     *
+     * @param {string} result - Result string from Game object
+     */
+    function printResultIcon(result) {
+        let icon;
+
+        if (result === Game.WIN) {
+            icon = Icon[0];
+        }
+
+        if (result === Game.DRAW) {
+            icon = Icon[1];
+        }
+
+        if (result === Game.LOSE) {
+            icon = Icon[2];
+        }
+
+        $("#resultIcon").fadeOut(FADEOUT_DURATION, function () {
+            $(this).attr("src", icon).fadeIn(FADEIN_DURATION);
+        });
+    }
+
+    /**
      * Clears the result element
      */
     function clearResult() {
         $("#resultEl").html("");
     }
 
+    /**
+     *
+     * @param {object} rpsBtn - Rock/paper/scissors button object
+     * @param {string} colorClass - Either bootstrap or self made class
+     * @param {number} duration - in milliseconds
+     */
     function animateBtn(rpsBtn, colorClass, duration) {
         rpsBtn.addClass(colorClass);
+
+        rotateImage(rpsBtn, 360);
 
         setTimeout(() => {
             rpsBtn.removeClass(colorClass);
@@ -119,19 +203,22 @@ $(function () {
     }
 
     /**
-     * Prints the rock paper scissors images
-     *
-     * @param {Number} userNum - Number between 0-2
-     * @param {Number} computerNum - Number between 0-2
+     * https://phppot.com/jquery/jquery-image-rotate/
+     * Rotates the clicked button image
+     * @param {object} rpsBtn - Rock/paper/scissors button object
+     * @param {number} degree - The degree how much to rotate the image
      */
-    function printIcon(userNum, computerNum) {
-        $("#user-choice").fadeOut(FADEOUT_DURATION, function () {
-            $(this).attr("src", Icon[userNum]).fadeIn(FADEIN_DURATION);
-        });
-
-        $("#computer-choice").fadeOut(FADEOUT_DURATION, function () {
-            $(this).attr("src", Icon[computerNum]).fadeIn(FADEIN_DURATION);
-        });
+    function rotateImage(rpsBtn, degree) {
+        $(rpsBtn.children()).animate(
+            { transform: degree },
+            {
+                step: function (now) {
+                    $(this).css({
+                        transform: "rotate(" + now + "deg)",
+                    });
+                },
+            }
+        );
     }
 
     /**
