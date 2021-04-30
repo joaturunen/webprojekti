@@ -10,12 +10,12 @@ main {
   height: 100%;
 }
 
+/* cardit */
 .card {
   width: 100%;
   height: 300px;
   border: none;
 }
-
 
 .front, .back {
   flex-direction: column;
@@ -31,14 +31,7 @@ main {
   background-color: rgb(127, 203, 253);
 } 
 
-/* right ja wrong classit */ 
-.right {
-  background-color: rgb(35, 228, 115);
-}
-
-.wrong {
-  background-color: rgb(243, 47, 47);
-}
+/* vastausnapit */
 
 .btn-group .vastausnappi {
   background-color: mintcream;
@@ -51,24 +44,29 @@ main {
   cursor: pointer;
   width: 80%;
   display: block;
+  margin: 2px;
 }
 
 .vastausnappi:hover {
-  background-color: rgb(119, 238, 188);
+  background-color: rgb(167, 245, 212);
 }
 
+/* pallurat */
 .dot {
   height: 25px;
   width: 25px;
-  background-color: #bbb;
+  border-style: solid;
+  border-color: black;
   border-radius: 50%;
   display: inline-block;
+  
 }
 
-/* .dot .wrong {
+/* right ja wrong classit */ 
+.right {
+  background-color: rgb(35, 228, 115);
+}
+
+.wrong {
   background-color: rgb(243, 47, 47);
 }
-
-.dot .right {
-  background-color: rgb(35, 228, 115);
-} */

@@ -32,6 +32,7 @@ const kysymykset = [
 ];
 
 const kysymys_maara = kysymykset.length;
+const SEURAAVA_KYSYMYS = 400;
 
 const vastausNapinNumerot = [
     "vastaus_1",
@@ -67,18 +68,19 @@ $(function () {
         if (peliLoppu) kysNro++;
 
         if (kysNro >= kysymys_maara) {
-            // peli loppuu
+            tulostaTulos();
         } else {
             kysymysData = kysymykset[kysNro];
             kysymys = kysymysData.kysymys;
             oikeaNro = kysymysData.oikeaNro;
             oikeaVastaus = kysymysData.vastaukset[oikeaNro];
 
+            //resetInput();
             asetaKysymys();
         }
     }
 
-    // kysymyksen tulostus
+    // kysymyksen tulostus html:n
     function asetaKysymys() {
         $("#kysNro").html(`${kysNro + 1} / ${kysymys_maara}`);
         $("#kysymys").html(kysymys);
@@ -86,20 +88,20 @@ $(function () {
             $(`#${vastausNapinNumerot[i]}`).html(kysymysData.vastaukset[i]);
         }
 
-        if (!peliLoppu) {
-            for (let i=0; i < kysymys_maara; i++) {
+        // if (!peliLoppu) {
+        //     for (let i=0; i < kysymys_maara; i++) {
 
-            }
-        }
+        //     }
+        // }
     }
 
     // vastausnapin klikkaus
     function clickHandler() {
         $("[name=vastausNappi]").each(function () {
             $(this).on("click", function () {
-                tarkistaVastaus($(this), oikeaNro);
+                tarkistaVastaus($(this), oikeaVastaus);
                 $("#card").flip(true);
-                $("#oikeaVastaus").html(oikeaVastaus);
+                $("#oikeaVastaus").html("Oikea vastaus on " + oikeaVastaus + ".");
             });
         });
     }
@@ -110,19 +112,22 @@ $(function () {
     */
 
     function tarkistaVastaus(vastausNappi, oikeaVastaus) {
-        // disableButtons(vastausNappi);
 
         if (vastausNappi.text() === oikeaVastaus) {
-            // muuta back class right
-            //dotVariOikein();
+            // tulosta meni oikein
+            $("[name=pallura]").addClass(".right");
+            $("#palaute").html("Hienoa, vastasit oikein!");
             oikeat++;
         } else {
-            // muuta back class wrong
-            //dotVariVaarin();
+            // tulosta meni väärin
+            $(".pallura").addClass(".wrong");
+            $("#palaute").html("Oi voi, vastaus meni väärin.");
             vaarat++;
         }
 
-        // tähän seuraavaan siirtyminen timeoutilla tms
+        setTimeout(() => {
+            seuraava();
+        }, SEURAAVA_KYSYMYS);
     }
 
     // kortin kääntö
@@ -130,15 +135,21 @@ $(function () {
         trigger: 'manual'
     });
 
+
     // vaihda palluran väri
-    // function dotVariOikein()  {
+
+    /** 
+     * @param {string} vari
+    */
+
+    // function varitaPallura(vari) {
     //     let pallura = $(`[name=pallura]:eq(${kysNro})`);
-    //     $(pallura).addClass(right)
+
+    //     $(pallura).addClass(vari);
+    //     //$(pallura).addClass(".wrong");
     // }
-    // function dotVariVaarin()  {
-    //     let pallura = $(`[name=pallura]:eq(${kysNro})`);
-    //     $(pallura).addClass(wrong)
-    // }
+
+    
     
 
 })
