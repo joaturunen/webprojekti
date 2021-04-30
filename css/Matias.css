@@ -1,0 +1,50 @@
+body {
+  background-color:seagreen;
+    
+}
+
+
+.qcontainer{
+    background-color:white;
+    width:fit-content;
+    border-style: solid;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px;
+}
+.endscreen {
+    background-color:white;
+    width: fit-content;
+    border-style: solid;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px;  
+}
+.cbutton{
+    width: 200px;
+    height: 100px;
+    border-style: solid;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px;  
+}
+
+
+h1{
+    font-weight: bolder;
+    font-size: xx-large;
+}
+
+
+   
+
+
+
+.imgshadow {
+    box-shadow: 0 0 10px 2px;  
+}
+
+
+
+.invis {
+    display: none;
+    
+}
+
