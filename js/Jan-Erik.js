@@ -1,4 +1,9 @@
 /// <reference path="jquery-3.6.0.js" />
+
+/**
+ *  Jan-Erik Kämäräinen
+ */
+
 "use strict";
 
 const questions = [
@@ -7,60 +12,79 @@ const questions = [
         answers: ["Kissa", "Leopardi", "Leijona", "Susi"],
         correctIndex: 2,
         image: "img/jan-erik/leijona.jpg",
-        //https://pixabay.com/fi/photos/lion-petoel%C3%A4in-vaarallinen-harja-3372720/
+        imageSrc:
+            "https://pixabay.com/fi/photos/lion-petoel%C3%A4in-vaarallinen-harja-3372720/",
     },
     {
         question: "Mikä eläin tämä on?",
         answers: ["Laama", "Alligaattori", "Virtahepo", "Norsu"],
         correctIndex: 3,
         image: "img/jan-erik/norsu.jpg",
-        // https://pixabay.com/fi/photos/norsu-el%C3%A4inten-safari-nis%C3%A4k%C3%A4s-114543/
+        imageSrc:
+            "https://pixabay.com/fi/photos/norsu-el%C3%A4inten-safari-nis%C3%A4k%C3%A4s-114543/",
     },
     {
         question: "Mikä eläin tämä on?",
         answers: ["Jääkarhu", "Panda", "Karhu", "Laiskiainen"],
         correctIndex: 1,
         image: "img/jan-erik/panda.jpg",
-        // https://pixabay.com/fi/photos/panda-uhanalainen-harvinaisten-505149/
+        imageSrc:
+            "https://pixabay.com/fi/photos/panda-uhanalainen-harvinaisten-505149/",
     },
     {
         question: "Mikä eläin tämä on?",
         answers: ["Seepra", "Kameli", "Kirahvi", "Hirvi"],
         correctIndex: 2,
         image: "img/jan-erik/kirahvi.jpg",
-        // https://pixabay.com/fi/photos/kirahvi-el%C3%A4inten-safari-5800387/
+        imageSrc:
+            "https://pixabay.com/fi/photos/kirahvi-el%C3%A4inten-safari-5800387/",
     },
     {
         question: "Mikä eläin tämä on?",
         answers: ["Ilves", "Gepardi", "Tiikeri", "Hyeena"],
         correctIndex: 0,
         image: "img/jan-erik/ilves.jpg",
-        // https://pixabay.com/fi/photos/predator-kissa-el%C3%A4inkunnan-4432461/
+        imageSrc:
+            "https://pixabay.com/fi/photos/predator-kissa-el%C3%A4inkunnan-4432461/",
     },
 ];
 
 $(function () {
     const QUESTION_AMOUNT = questions.length;
-    const NEXT_QUESTION_DELAY = 1800;
+    const NEXT_QUESTION_DELAY = 1000;
+    const ANIMATION_DURATION = 1000;
 
-    const btnAnswerTitleIds = [
+    const btnAnswerIds = [
         "answer_option_1",
         "answer_option_2",
         "answer_option_3",
         "answer_option_4",
     ];
 
-    const modal = new bootstrap.Modal(document.getElementById("modal"), {
-        backdrop: "static",
-        keyboard: false,
-        focus: false,
-    });
+    const answerModal = new bootstrap.Modal(
+        document.getElementById("answerModal"),
+        {
+            backdrop: "static",
+            keyboard: false,
+            focus: false,
+        }
+    );
 
-    const summary = new bootstrap.Modal(document.getElementById("summary"), {
-        backdrop: "static",
-        keyboard: false,
-        focus: false,
-    });
+    const summaryModal = new bootstrap.Modal(
+        document.getElementById("summaryModal"),
+        {
+            backdrop: "static",
+            keyboard: false,
+            focus: false,
+        }
+    );
+
+    const summaryText = {
+        One: "Tarvitset lisää harjoitusta. ☹️",
+        Two: "Hyvä yritys. 🙂",
+        Three: "Hyvä tulos! 😃",
+        Four: "Mahtava tulos! 😁",
+    };
 
     let initCompleted = false;
     let questionIndex = 0;
@@ -81,6 +105,7 @@ $(function () {
      * Gets the first question and sets the click handler
      */
     function init() {
+        $(".animateOnLoad").animate({ opacity: "1" }, ANIMATION_DURATION);
         nextQuestion();
         clickHandler();
         initCompleted = true;
@@ -93,8 +118,8 @@ $(function () {
         if (initCompleted) questionIndex++;
 
         if (questionIndex >= QUESTION_AMOUNT) {
-            modal.hide();
-            showSummary();
+            answerModal.hide();
+            showsummaryModal();
         } else {
             questionObj = questions[questionIndex];
             question = questionObj.question;
@@ -114,9 +139,10 @@ $(function () {
     function initElements() {
         $("#questionIndex").html(`${questionIndex + 1}/${QUESTION_AMOUNT}`);
         $("#question").html(question);
+        $("#questionImageSource").attr("href", questionObj.imageSrc);
         $("#questionImage").attr("src", image);
-        for (let i = 0; i <= btnAnswerTitleIds.length; i++) {
-            $(`#${btnAnswerTitleIds[i]}`).html(questionObj.answers[i]);
+        for (let i = 0; i <= btnAnswerIds.length; i++) {
+            $(`#${btnAnswerIds[i]}`).html(questionObj.answers[i]);
         }
 
         if (!initCompleted) {
@@ -141,8 +167,8 @@ $(function () {
 
     /**
      *
-     * @param {Object} answerBtn - Answer button element
-     * @param {String} correctAnswer - The question answer as a string
+     * @param {object} answerBtn - Answer button element
+     * @param {string} correctAnswer - The question answer as a string
      */
     function validateAnswer(answerBtn, correctAnswer) {
         disableButtons(answerBtn);
@@ -161,46 +187,47 @@ $(function () {
 
         setTimeout(() => {
             nextQuestion();
-            modal.hide();
+            answerModal.hide();
         }, NEXT_QUESTION_DELAY);
     }
 
     /**
      *
-     * @param {Object} answerBtn - Answer button element
-     * @param {String} colorClass - Highlight color as a string
-     * @param {Number|Boolean} timeout - in ms or true/false, Boolean = color stays, Number = color fades after timeout
+     * @param {object} answerBtn - Answer button element
+     * @param {string} colorClass - Highlight color as a string
+     * @param {number|boolean} duration - in ms or Boolean true; true = color stays, Number = color fades after duration
      */
-    function answerBtnAnimate(answerBtn, colorClass, timeout) {
+    function answerBtnAnimate(answerBtn, colorClass, duration) {
         answerBtn.addClass(colorClass);
 
-        if (!(timeout === true)) {
+        if (duration === false) {
             setTimeout(() => {
                 answerBtn.removeClass(colorClass);
-            }, timeout);
+            }, duration);
         }
     }
 
     /**
      * Changes color of the trophy
-     * @param {String} colorClass - Color class, for example text-success
+     * @param {string} colorClass - Color class, for example text-success
      */
     function trophyColor(colorClass) {
         let trophy = $(`[name=trophy]:eq(${questionIndex})`);
+
         $(trophy).removeClass("text-white");
         $(trophy).addClass(colorClass);
     }
 
     /**
-     *
-     * @param {Objext} answerBtn - Answer button element
+     * Disables answer buttons except the one user clicked
+     * @param {object} answerBtn - Answer button element
      */
     function disableButtons(answerBtn) {
-        for (let i = 0; i < btnAnswerTitleIds.length; i++) {
-            if (btnAnswerTitleIds[i] === answerBtn[0].id) {
+        for (let i = 0; i < btnAnswerIds.length; i++) {
+            if (btnAnswerIds[i] === answerBtn[0].id) {
                 continue;
             } else {
-                $(`#${btnAnswerTitleIds[i]}`).prop("disabled", true);
+                $(`#${btnAnswerIds[i]}`).prop("disabled", true);
             }
         }
     }
@@ -209,67 +236,79 @@ $(function () {
      *  Enables the answer buttons and removes all unnecessary classes
      */
     function resetInput() {
-        for (let i = 0; i < btnAnswerTitleIds.length; i++) {
-            $(`#${btnAnswerTitleIds[i]}`).prop("disabled", false);
-            $(`#${btnAnswerTitleIds[i]}`).removeClass(
-                "jk-btn-gradient-correct"
-            );
-            $(`#${btnAnswerTitleIds[i]}`).removeClass("jk-btn-gradient-wrong");
+        for (let i = 0; i < btnAnswerIds.length; i++) {
+            $(`#${btnAnswerIds[i]}`).prop("disabled", false);
+            $(`#${btnAnswerIds[i]}`).removeClass("jk-btn-gradient-correct");
+            $(`#${btnAnswerIds[i]}`).removeClass("jk-btn-gradient-wrong");
         }
     }
 
     /**
      *
-     * @param {Boolean} answerBoolean - Is the answer correct
-     * @param {String} correctAnswer - Correct question answer
+     * @param {boolean} answerBoolean - Is the answer correct
+     * @param {string} correctAnswer - Correct question answer
      */
     function showWrongOrCorrectModal(answerBoolean, correctAnswer) {
-        $("#modal_text").html(`Eläin on ${correctAnswer.toLowerCase()}.`);
+        $("#modalText").html(`Eläin on ${correctAnswer.toLowerCase()}.`);
 
         if (answerBoolean) {
-            $("#modal_title").html("Oikein!");
-            $("#modal_title").prepend(
+            $("#modalTitle").html("Oikein!");
+            $("#modalTitle").prepend(
                 `<i class="fa fa-check text-success pe-2" aria-hidden="true"></i>`
             );
         } else {
-            $("#modal_title").html("Väärin!");
-            $("#modal_title").prepend(
+            $("#modalTitle").html("Väärin!");
+            $("#modalTitle").prepend(
                 `<i class="fa fa-times text-danger pe-2" aria-hidden="true"></i>`
             );
         }
 
-        modal.show();
+        answerModal.show();
     }
 
     /**
-     *  On game complete, show a summary of correct and wrong questions
+     *  On game complete, show a summaryModal of correct and wrong questions
      */
-    function showSummary() {
-        $("#summary_title").html("Peli päättyi!");
-        $("#summary_title").prepend(
-            `<i class="fa fa-thumbs-up text-success pe-2" aria-hidden="true"></i>`
+    function showsummaryModal() {
+        calculateSummaryText();
+
+        $("#summaryTitle").html("Peli päättyi!");
+
+        $("#summaryCorrect").html(
+            `Oikein: <span class="badge bg-success">${correct_answers}</span>`
         );
 
-        $("#summary_correct_text").html(
-            `Oikeita vastauksia: <span class="badge bg-success">${correct_answers}</span>`
+        $("#summaryWrong").html(
+            `Väärin: <span class="badge bg-danger">${wrong_answers}</span>`
         );
 
-        $("#summary_wrong_text").html(
-            `Vääriä vastauksia: <span class="badge bg-danger">${wrong_answers}</span>`
-        );
+        summaryModal.show();
 
-        summary.show();
-
-        $("#btn_play_again").on("click", function () {
+        $("#btnPlayAgain").on("click", function () {
             location.reload();
         });
     }
 
     /**
+     *  Calculates the summary text and adds it to text element in the summary modal
+     */
+    function calculateSummaryText() {
+        if (correct_answers === 0) {
+            $("#summaryText").html(summaryText.One);
+        } else if (correct_answers <= 2) {
+            $("#summaryText").html(summaryText.Two);
+        } else if (correct_answers < 4) {
+            $("#summaryText").html(summaryText.Three);
+        } else if (correct_answers >= 4) {
+            $("#summaryText").html(summaryText.Four);
+        }
+    }
+
+    /**
      *
-     * @param {Number} min - Minimum number
-     * @param {Number} max - Maximum number
-     * @returns {Number} - Returns a number between min and max (min included, max excluded)
+     * @param {number} min - Minimum number
+     * @param {number} max - Maximum number
+     * @returns {number} - Returns a number between min and max (min included, max excluded)
      */
     function getRndInteger(min, max) {
         return Math.floor(Math.random() * (max - min)) + min;

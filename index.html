@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 
-<body class="container-fluid bg-color">
-    <header>
+<body>
+    <header class="container-fluid bg-color">
         <div>
             <!-- tähän joku banneri jos jaksaa-->
         </div>
-        <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-color">
             <div class="container-fluid">
-                <a href="#" class="navbar-brand">
+                <a href="index.html" class="navbar-brand">
                     <img src="img/logo.png" alt="Logo" width="30">
                     Pelisivusto
                 </a>
@@ -25,15 +25,18 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarToggler">
-                    <ul class="navbar-nav ">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" href="index.html">Etusivu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Peli 1</a>
+                            <a class="nav-link" href="Matias.html">Matiaksen peli</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Jan-Erik.html">Jan-Erikin peli</a>
+                            <a class="nav-link" href="JK-elainvisa.html">Eläinvisa</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="JK-kps.html">Kivi, paperi ja sakset</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="Juho.html">Juhon peli</a>
@@ -42,58 +45,70 @@
                             <a class="nav-link" href="Riku.html">Rikun peli</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Joanna.html">Joannan peli</a>
+                            <a class="nav-link" href="Joanna.html">Question words</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="Tietoja.html">Tietoja</a>
                         </li>
                     </ul>
-
                 </div>
             </div>
         </nav>
     </header>
 
-    <main class="container mb-4">
+    <main class="container mb-4 bg-color">
         <div class="mx-4 my-3">
             <p>Tällä sivustolla pääset testaamaan osaamistasi erilaisten visojen avulla.</p>
             <p>Voit valita joko matematiikka-, eläin-, maantieto- tai englanninkielenvisan!</p>
         </div>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 container">
             <div class="col">
-                <div class="card m-1 p-1">
+                <div class="card m-2">
                     <img src="img/imgMH/germany.png" class="img-fluid">
-                    <div>
+                    <div class="m-2">
                         <h4>TBD</h4>
-                        <p>Saksan kielinen kuvan arvauspeli</p>
+                        <p>Saksan kielinen kuvan arvauspeli.</p>
                         <button class="btn btn-primary" onclick="location.href='/Matias.html';">Pelaa!</button>
                     </div>
                 </div>
             </div>
             <div class="col">
-                <div class="card m-1 p-1">
-                    <img src="img/jan-erik/pelin_logo.png" class="img-fluid">
-                    <div>
+                <div class="card m-2">
+                    <!-- https://pixabay.com/fi/vectors/koira-koominen-el%C3%A4inten-muotokuva-3216207/ -->
+                    <img src="img/jan-erik/elainvisa_logo.png" class="img-fluid">
+                    <div class="m-2">
                         <h4>Eläinvisa</h4>
-                        <p>Hauska eläinvisa</p>
-                        <button class="btn btn-primary" onclick="location.href='/Jan-Erik.html';">Pelaa!</button>
+                        <p>Hauska eläinvisa.</p>
+                        <button class="btn btn-primary" onclick="location.href='/JK-elainvisa.html';">Pelaa!</button>
                     </div>
                 </div>
             </div>
             <div class="col">
-                <div class="card m-1 p-1">
-                    <img src="pelinLogo" class="img-fluid">
-                    <div>
-                        <h4>Pelin otsikko</h4>
-                        <p>Lyhyt kuvaus pelistä</p>
+                <div class="card m-2">
+                    <!-- https://pixabay.com/fi/vectors/koira-koominen-el%C3%A4inten-muotokuva-3216207/ -->
+                    <img src="img/jan-erik/kps-logo.jpg" class="img-fluid">
+                    <div class="m-2">
+                        <h4>Kivi, paperi ja sakset</h4>
+                        <p>Yksinkertainen kivi, paperi ja sakset -peli.</p>
+                        <button class="btn btn-primary" onclick="location.href='/JK-kps.html';">Pelaa!</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card m-2">
+                    <img src="img/Juho/earth.png" class="img-fluid">
+                    <div class="m-2">
+                        <h4>Maantietovisa</h4>
+                        <!--https://pixabay.com/fi/illustrations/maa-maailman-planeetta-maapallo-1303628/-->
+                        <p>Lyhyt visa eri maantiedon aiheista.</p>
                         <button class="btn btn-primary" onclick="location.href='/Juho.html';">Pelaa!</button>
                     </div>
                 </div>
             </div>
             <div class="col">
-                <div class="card m-1 p-1">
+                <div class="card m-2">
                     <img src="img/Riku/Matikka-logo.jpg" class="img-fluid">
-                    <div>
+                    <div class="m-2">
                         <h4>MatikkaVisa</h4>
                         <p>Matematiikan taitoja vaativa peli.</p>
                         <button class="btn btn-primary" onclick="location.href='/Riku.html';">Pelaa!</button>
@@ -101,10 +116,10 @@
                 </div>
             </div>
             <div class="col">
-                <div class="card m-1 p-1">
+                <div class="card m-2">
                     <img src="/img/Joanna/questionwords.png" class="img-fluid">
-                    <div>
-                        <h4>English</h4>
+                    <div class="m-2">
+                        <h4>Question words</h4>
                         <p>Kysymyssanoja englanniksi: valitse lauseeseen sopiva sana. </p>
                         <button class="btn btn-primary" onclick="location.href='/Joanna.html';">Pelaa!</button>
                     </div>
