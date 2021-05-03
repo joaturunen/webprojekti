@@ -76,7 +76,8 @@ $(function () {
     }
 
     $("#next").on('click', function() {
-        kysNro++;
+        if (initCompleted) kysNro++;
+        
         $("#card").flip(false);
         if (kysNro >= kysymys_maara) {
             naytaTulos();
