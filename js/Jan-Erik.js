@@ -51,7 +51,7 @@ const questions = [
 
 $(function () {
     const QUESTION_AMOUNT = questions.length;
-    const NEXT_QUESTION_DELAY = 1000;
+    const NEXT_QUESTION_DELAY = 1500;
     const ANIMATION_DURATION = 1000;
 
     const btnAnswerIds = [
@@ -102,7 +102,7 @@ $(function () {
 
     /**
      * Executed on first page load
-     * Gets the first question and sets the click handler
+     * Gets the first question, animates the page and sets the click handler
      */
     function init() {
         $(".animateOnLoad").animate({ opacity: "1" }, ANIMATION_DURATION);
@@ -133,7 +133,7 @@ $(function () {
     }
 
     /**
-     *  Inserts question image, index and
+     *  Sets the question image, game progress, trophies and
      *  answer options to elements in HTML
      */
     function initElements() {
@@ -166,7 +166,7 @@ $(function () {
     }
 
     /**
-     *
+     * Validates the answer
      * @param {object} answerBtn - Answer button element
      * @param {string} correctAnswer - The question answer as a string
      */
@@ -174,13 +174,13 @@ $(function () {
         disableButtons(answerBtn);
 
         if (answerBtn.text() === correctAnswer) {
-            answerBtnAnimate(answerBtn, "jk-btn-gradient-correct", true);
-            trophyColor("text-success");
+            animateAnswerBtn(answerBtn, "jk-btn-gradient-correct");
+            setTrophyColor("text-success");
             showWrongOrCorrectModal(true, correctAnswer);
             correct_answers++;
         } else {
-            answerBtnAnimate(answerBtn, "jk-btn-gradient-wrong", true);
-            trophyColor("text-danger");
+            animateAnswerBtn(answerBtn, "jk-btn-gradient-wrong");
+            setTrophyColor("text-danger");
             showWrongOrCorrectModal(false, correctAnswer);
             wrong_answers++;
         }
@@ -192,26 +192,19 @@ $(function () {
     }
 
     /**
-     *
+     * Animates the answer button
      * @param {object} answerBtn - Answer button element
      * @param {string} colorClass - Highlight color as a string
-     * @param {number|boolean} duration - in ms or Boolean true; true = color stays, Number = color fades after duration
      */
-    function answerBtnAnimate(answerBtn, colorClass, duration) {
+    function animateAnswerBtn(answerBtn, colorClass, duration) {
         answerBtn.addClass(colorClass);
-
-        if (duration === false) {
-            setTimeout(() => {
-                answerBtn.removeClass(colorClass);
-            }, duration);
-        }
     }
 
     /**
      * Changes color of the trophy
      * @param {string} colorClass - Color class, for example text-success
      */
-    function trophyColor(colorClass) {
+    function setTrophyColor(colorClass) {
         let trophy = $(`[name=trophy]:eq(${questionIndex})`);
 
         $(trophy).removeClass("text-white");

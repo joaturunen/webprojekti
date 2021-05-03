@@ -1,14 +1,57 @@
-/* Värimaailma */
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap");
+
+:root {
+    --color-bg: rgb(245, 245, 229);
+    --color-card: #6180a0;
+    --color-jumbotron-bg: #fff;
+    --color-text: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Bebas Neue", sans-serif;
+}
+
+p {
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+#game-btn {
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.navbar-brand {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 24px;
+}
+
+.header-color {
+    background-color: var(--color-bg);
+}
+
 .bg-color {
-    background-color: rgb(236, 241, 241);
+    background-color: var(--color-bg);
+}
+
+.jumbotron {
+    border-style: double;
+    border-width: 6px;
+    background-color: var(--color-jumbotron-bg);
+    border-radius: 10px;
 }
 
 .card {
-    background-color: rgba(205, 252, 238, 0.904);
+    background-color: var(--color-card);
+    color: var(--color-text);
     text-align: center;
     border-radius: 10;
-    border-style: solid;
-    border-color: lightslategrey;
-    border-width: 2px;
     vertical-align: sub;
 }

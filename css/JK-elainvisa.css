@@ -22,6 +22,10 @@ main {
     font-family: "Roboto", sans-serif;
 }
 
+.modal-title {
+    font-family: "Roboto", sans-serif;
+}
+
 .container {
     background-color: var(--color-white-transparent) !important;
     border-radius: 10px;

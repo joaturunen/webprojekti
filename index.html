@@ -10,11 +10,8 @@
 </head>
 
 <body>
-    <header class="container-fluid bg-color">
-        <div>
-            <!-- tähän joku banneri jos jaksaa-->
-        </div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-color">
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light header-color">
             <div class="container-fluid">
                 <a href="index.html" class="navbar-brand">
                     <img src="img/logo.png" alt="Logo" width="30">
@@ -39,10 +36,10 @@
                             <a class="nav-link" href="JK-kps.html">Kivi, paperi ja sakset</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Juho.html">Juhon peli</a>
+                            <a class="nav-link" href="Juho.html">Maantietovisa</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Riku.html">Rikun peli</a>
+                            <a class="nav-link" href="Riku.html">Matikkavisa</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="Joanna.html">Question words</a>
@@ -56,86 +53,89 @@
         </nav>
     </header>
 
-    <main class="container mb-4 bg-color">
-        <div class="mx-4 my-3">
-            <p>Tällä sivustolla pääset testaamaan osaamistasi erilaisten visojen avulla.</p>
-            <p>Voit valita joko matematiikka-, eläin-, maantieto- tai englanninkielenvisan!</p>
+    <main class="container bg-color py-4">
+        <div class="jumbotron text-center fs-5 py-3 px-2 px-md-0 mb-4 mx-2 mx-md-4">
+            <h1>Pelisivusto</h1>
+            <p>Tällä sivustolla pääset testaamaan osaamistasi erilaisten visojen ja pelien avulla.</p>
         </div>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 px-3 px-md-5">
             <div class="col">
-                <div class="card m-2">
+                <div class="card my-2 my-md-0">
                     <img src="img/imgMH/germany.png" class="img-fluid">
-                    <div class="m-2">
+                    <div class="p-2">
                         <h4>TBD</h4>
                         <p>Saksan kielinen kuvan arvauspeli.</p>
-                        <button class="btn btn-primary" onclick="location.href='/Matias.html';">Pelaa!</button>
+                        <button id="game-btn" class="btn btn-light"
+                            onclick="location.href='/Matias.html';">Pelaa</button>
                     </div>
                 </div>
             </div>
             <div class="col">
-                <div class="card m-2">
+                <div class="card my-2 my-md-0">
                     <!-- https://pixabay.com/fi/vectors/koira-koominen-el%C3%A4inten-muotokuva-3216207/ -->
                     <img src="img/jan-erik/elainvisa_logo.png" class="img-fluid">
-                    <div class="m-2">
+                    <div class="p-2">
                         <h4>Eläinvisa</h4>
                         <p>Hauska eläinvisa.</p>
-                        <button class="btn btn-primary" onclick="location.href='/JK-elainvisa.html';">Pelaa!</button>
+                        <button id="game-btn" class="btn btn-light"
+                            onclick="location.href='/JK-elainvisa.html';">Pelaa</button>
                     </div>
                 </div>
             </div>
             <div class="col">
-                <div class="card m-2">
+                <div class="card my-2 my-md-0">
                     <!-- https://pixabay.com/fi/vectors/koira-koominen-el%C3%A4inten-muotokuva-3216207/ -->
                     <img src="img/jan-erik/kps-logo.jpg" class="img-fluid">
-                    <div class="m-2">
+                    <div class="p-2">
                         <h4>Kivi, paperi ja sakset</h4>
                         <p>Yksinkertainen kivi, paperi ja sakset -peli.</p>
-                        <button class="btn btn-primary" onclick="location.href='/JK-kps.html';">Pelaa!</button>
+                        <button id="game-btn" class="btn btn-light"
+                            onclick="location.href='/JK-kps.html';">Pelaa</button>
                     </div>
                 </div>
             </div>
             <div class="col">
-                <div class="card m-2">
+                <div class="card my-2 my-md-0">
                     <img src="img/Juho/earth.png" class="img-fluid">
-                    <div class="m-2">
+                    <div class="p-2">
                         <h4>Maantietovisa</h4>
                         <!--https://pixabay.com/fi/illustrations/maa-maailman-planeetta-maapallo-1303628/-->
                         <p>Lyhyt visa eri maantiedon aiheista.</p>
-                        <button class="btn btn-primary" onclick="location.href='/Juho.html';">Pelaa!</button>
+                        <button id="game-btn" class="btn btn-light" onclick="location.href='/Juho.html';">Pelaa</button>
                     </div>
                 </div>
             </div>
             <div class="col">
-                <div class="card m-2">
+                <div class="card my-2 my-md-0">
                     <img src="img/Riku/Matikka-logo.jpg" class="img-fluid">
-                    <div class="m-2">
+                    <div class="p-2">
                         <h4>MatikkaVisa</h4>
                         <p>Matematiikan taitoja vaativa peli.</p>
-                        <button class="btn btn-primary" onclick="location.href='/Riku.html';">Pelaa!</button>
+                        <button id="game-btn" class="btn btn-light" onclick="location.href='/Riku.html';">Pelaa</button>
                     </div>
                 </div>
             </div>
             <div class="col">
-                <div class="card m-2">
+                <div class="card my-2 my-md-0">
                     <img src="/img/Joanna/questionwords.png" class="img-fluid">
-                    <div class="m-2">
+                    <div class="p-2">
                         <h4>Question words</h4>
                         <p>Kysymyssanoja englanniksi: valitse lauseeseen sopiva sana. </p>
-                        <button class="btn btn-primary" onclick="location.href='/Joanna.html';">Pelaa!</button>
+                        <button id="game-btn" class="btn btn-light"
+                            onclick="location.href='/Joanna.html';">Pelaa</button>
                     </div>
                 </div>
             </div>
         </div>
+        <footer class="text-center mt-5">
+            <div>
+                <p>&copy Riku Honkamäki, Matias Hurtamo, Juho Karppinen, Jan-Erik Kämäräinen, Joanna Turunen</p>
+            </div>
+            <div>
+                <p>2021</p>
+            </div>
+        </footer>
     </main>
-
-    <footer>
-        <div class="text-center">
-            <p>&copy Riku Honkamäki, Matias Hurtamo, Juho Karppinen, Jan-Erik Kämäräinen, Joanna Turunen</p>
-        </div>
-        <div class="text-center">
-            <p>2021</p>
-        </div>
-    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
         integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
