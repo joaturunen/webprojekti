@@ -5,6 +5,7 @@
     --color-card: #6180a0;
     --color-jumbotron-bg: #fff;
     --color-text: #fff;
+    --color-btn-hover: rgb(62, 73, 87);
 }
 
 h1,
@@ -25,7 +26,13 @@ body {
 }
 
 #game-btn {
+    border: none;
     font-family: "Bebas Neue", sans-serif;
+}
+
+#game-btn:hover {
+    background-color: var(--color-btn-hover);
+    color: var(--color-text);
 }
 
 .navbar-brand {
