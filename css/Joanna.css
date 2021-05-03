@@ -88,11 +88,11 @@ main {
 /* right ja wrong classit */ 
 
 .right {
-  background-color: red;
+  background-color: green;
 }
 
 .wrong {
-  background-color: green;
+  background-color: red;
 }
 
 /* lopputulosruutu */
