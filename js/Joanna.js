@@ -77,12 +77,14 @@ $(function () {
 
     $("#next").on('click', function() {
         if (initCompleted) kysNro++;
-        
+
         $("#card").flip(false);
         if (kysNro >= kysymys_maara) {
             naytaTulos();
         } else {
             init();
+            console.log(oikeat);
+            console.log(vaarat);
         }
     })
 
@@ -125,15 +127,17 @@ $(function () {
     function tarkistaVastaus(vastausNappi, oikeaVastaus) {
 
         if (vastausNappi.text() === oikeaVastaus) {
-            oikeat++;
+            
+            console.log(oikeat);
             $(`[name=pallura]:eq(${kysNro})`).addClass("right");
             $("#palaute").html("Hienoa, vastasit oikein!");
-            
+            oikeat++;
         } else {
-            vaarat++;
+            
+            console.log(vaarat);
             $(`[name=pallura]:eq(${kysNro})`).addClass("wrong");
             $("#palaute").html("Oi voi, vastaus meni väärin.");
-            
+            vaarat++;
         }
     }
 
@@ -149,8 +153,8 @@ $(function () {
         laskePalaute();
         
 
-        $("#oikeat").append(oikeat);
-        $("#vaarat").append(vaarat);
+        $("#oikeat").append(oikeat + ".");
+        $("#vaarat").append(vaarat + ".");
 
         $("#startAgain").on('click', function() {
             location.reload();

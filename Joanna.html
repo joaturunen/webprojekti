@@ -55,12 +55,8 @@
     </header>
 
     <main class="container-fluid row align-items-baseline align-items-sm-center">
-        <div class="container row row-cols-1 row-cols-md-3">
+        <div class="container ">
             <div class="taulu text-center">
-                <!-- tähän jotain muuta vielä? -->
-                <div>
-                    <img src="/img/Joanna/question-mark-2154830_640.png" class="img-fluid" width="50" />
-                </div>
                 <div>
                     <h1>Question words</h1>
                 </div>
@@ -71,8 +67,6 @@
                     <span class="dot" name="pallura" id="pallura_3"></span>
                     <span class="dot" name="pallura" id="pallura_4"></span>
                 </div>
-
-
             </div>
 
             <div class="taulu text-center" id="kysymyscardi">
@@ -81,33 +75,36 @@
                     <div class="front">
                         <h2 id="kysNro"></h2>
                         <h2 id="kysymys"></h2>
-                        <div class="btn-group">
-                            <button class="vastausnappi" name="vastausNappi" id="vastaus_1"></button>
+                        <div class="btn-group-vertical">
+                            <button class="vastausnappi " name="vastausNappi" id="vastaus_1"></button>
 
-                            <button class="vastausnappi" name="vastausNappi" id="vastaus_2"></button>
+                            <button class="vastausnappi " name="vastausNappi" id="vastaus_2"></button>
 
-                            <button class="vastausnappi" name="vastausNappi" id="vastaus_3"></button>
+                            <button class="vastausnappi " name="vastausNappi" id="vastaus_3"></button>
 
-                            <button class="vastausnappi" name="vastausNappi" id="vastaus_4"></button>
+                            <button class="vastausnappi " name="vastausNappi" id="vastaus_4"></button>
                         </div>
                     </div>
                     <div class="back" name="tausta">
                         <h2 id="palaute"></h2>
                         <h2 id="oikeaVastaus"></h2>
-                        <!-- <div class="btn-group">
-                            <button class="nappula" id="prev">Prev</button>
+                        <div class="btn-group">
+                            <!-- <button class="nappula" id="prev">Prev</button> -->
                             <button class="nappula" id="next">Next</button>
-                        </div> -->
-                        <button class="nappula" id="next">Next</button>
+                        </div>
+                        <!-- <button class="nappula" id="next">Next</button> -->
                     </div>
                 </div>
             </div>
-
+            
+            <!-- tulosruutu -->
             <div class="tulosruutu" id="tulosruutu">
                 <h2 id="lopputulos"></h2>
                 <h5 id="oikeat">Sait oikein </h5>
                 <h5 id="vaarat">Väärin meni </h5>
-                <button class="nappula" id="startAgain">Start again</button>
+                <div >
+                    <button class="nappula" id="startAgain">Start again</button>
+                </div>
             </div>
         </div>
     </main>
