@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etusivu</title>
+    <title>MatikkaVisa</title>
+    <meta content="Riku Honkamäki" name="author">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/Riku.css">
@@ -12,6 +13,7 @@
 
 <body>
     <header>
+        <!--navbaari-->
         <nav class="navbar navbar-expand-lg navbar-light header-color">
             <div class="container-fluid">
                 <a href="index.html" class="navbar-brand">
@@ -39,7 +41,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="Juho.html">Maantietovisa</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item active">
                             <a class="nav-link" href="Riku.html">Matikkavisa</a>
                         </li>
                         <li class="nav-item">
@@ -54,153 +56,179 @@
         </nav>
     </header>
 
-    <main class="container">
-        <div class="text-center">
-            <section class="row">
-                <h1 class="mb-4">MatikkaVisa</h1>
-                <p>Tässä pelissä pääset koettelemaan matemaattisia taitojasi!</p>
-                <p>Toivottavasti olet ollut hereillä Matikan tunneilla...</p>
-
-                <div id="tulokset"></div>
-                <div id="tulosKortti" class="text-start"></div>
-                <!--kortti1-->
-                <div class="card col-md-4 bg-success mb-4">
-                    <h2 class="mb-3 mt-3">2 + 7 = __?</h2> 
-                    <div>
-                        <input id="kys1vas1" type="radio" name="vastausNappi1" value="false">
-                        <label for="kys1vas1">5</label>
-                    </div>
-                    <div>
-                        <input id="kys1vas2" type="radio" name="vastausNappi1" value="true">
-                        <label for="kys1vas2">9</label>                    
-                    </div>
-                    <div>
-                        <input id="kys1vas3" type="radio" name="vastausNappi1" value="false">
-                        <label for="kys1vas3">6</label>                    
-                    </div>
-                    <div>
-                        <input id="kys1vas4" type="radio" name="vastausNappi1" value="false">
-                        <label for="kys1vas4">8</label>                    
-                    </div>
-                    <button class="mt-3" id="kys1OikeaVas">Tarkista vastaus</button>
-                    <p class="mt-3 mb-3" id="result1"></p>  
+    <main class="container-fluid">
+        <div id="questions">
+            <div class="row">
+                <!--Otsikko ja teksti-->
+                <h1 style="font-family: Georgia, 'Times New Roman', Times, serif;" class="text-center">MatikkaVisa</h1>
+                <div class="text-center mt-3">
+                    <h5>Tässä pelissä pääset testaamaan matemaattisia taitojasi.</h5>
+                    <h5>Otahan siis mukava etukeno ja rasita aivojasi tehtävien parissa.</h5>
                 </div>
-                <!--kortti2-->
-                <div class="card col-md-4 bg-success mb-4">
-                    <h2 class="mb-3 mt-3">2 + 7 = __?</h2> 
-                    <div>
-                        <input id="kys2vas1" type="radio" name="vastausNappi2" value="false">
-                        <label for="kys2vas1">5</label>
+                <!--Ensimmäinen tehtävä-->
+                <section class="col-md-6 col-lg-4 my-4">
+                    <div class="card bg-success">
+                            <h3 class="mt-2">7 + 5 = ?</h3>
+                            <h4>
+                                <input type="radio" id="k1v1" name="kys1" class="answer" value="false">
+                                
+                                <label for="k1v1">10</label>
+                            </h4>
+                            <h4>
+                                <input type="radio" id="k1v2" name="kys1" class="answer" value="false">
+                                <label for="k1v2">11</label>
+                            </h4>
+                            <h4>
+                                <input type="radio" id="k1v3" name="kys1" class="answer" value="true">
+                                <label for="k1v3">12</label>
+                            </h4>
+                            <h4>
+                                <input type="radio" id="k1v4" name="kys1" class="answer" value="false">
+                                <label for="k1v4">15</label>
+                            </h4>
                     </div>
-                    <div>
-                        <input id="kys2vas2" type="radio" name="vastausNappi2" value="true">
-                        <label for="kys2vas2">9</label>                    
-                    </div>
-                    <div>
-                        <input id="kys2vas3" type="radio" name="vastausNappi2" value="false">
-                        <label for="kys2vas3">6</label>                    
-                    </div>
-                    <div>
-                        <input id="kys2vas4" type="radio" name="vastausNappi2" value="false">
-                        <label for="kys2vas4">8</label>                    
-                    </div>
-                    <button class="mt-3" id="kys2OikeaVas">Tarkista vastaus</button>
-                    <p class="mt-3 mb-3" id="result2"></p>  
+                </section>
+                <!--Toinen tehtävä-->
+                <section class="col-md-6 col-lg-4 my-4">
+                    <div class="card bg-success">
+                        <h3 class="mt-2">12 : 3 = ?</h3>
+                        <h4>
+                            <input type="radio" id="k2v1" name="kys2" class="answer" value="false">
+                            <label for="k2v1">3</label>
+                        </h4>
+                        <h4>
+                            <input type="radio" id="k2v2" name="kys2" class="answer" value="false">
+                            <label for="k2v2">6</label>
+                        </h4>
+                        <h4>
+                            <input type="radio" id="k2v3" name="kys2" class="answer" value="true">
+                            <label for="k2v3">4</label>
+                        </h4>
+                        <h4>
+                            <input type="radio" id="k2v4" name="kys2" class="answer" value="false">
+                            <label for="k2v4">8</label>
+                        </h4>
                 </div>
-                <!--kortti3-->
-                <div class="card col-md-4 bg-success mb-4">
-                    <h2 class="mb-3 mt-3">2 + 7 = __?</h2> 
-                    <div>
-                        <input id="kys3vas1" type="radio" name="vastausNappi3" value="1">
-                        <label for="kys3vas1">5</label>
-                    </div>
-                    <div>
-                        <input id="kys3vas2" type="radio" name="vastausNappi3" value="2">
-                        <label for="kys3vas2">9</label>                    
-                    </div>
-                    <div>
-                        <input id="kys3vas3" type="radio" name="vastausNappi3" value="3">
-                        <label for="kys3vas3">6</label>                    
-                    </div>
-                    <div>
-                        <input id="kys3vas4" type="radio" name="vastausNappi3" value="4">
-                        <label for="kys3vas4">8</label>                    
-                    </div>
-                    <button class="mt-3" id="kys3OikeaVas">Tarkista vastaus</button>
-                    <p class="mt-3 mb-3" id="result3"></p>  
+                </section>
+                <!--Kolmas tehtävä-->
+                <section class="col-md-6 col-lg-4 my-4">
+                    <div class="card bg-success">
+                        <h3 class="mt-2">3 x 6 = ?</h3>
+                        <h4>
+                            <input type="radio" id="k3v1" name="kys3" class="answer" value="false">                     
+                            <label for="k3v1">12</label>
+                        </h4>
+                        <h4>
+                            <input type="radio" id="k3v2" name="kys3" class="answer" value="true">
+                            <label for="k3v2">18</label>
+                        </h4>
+                        <h4>
+                            <input type="radio" id="k3v3" name="kys3" class="answer" value="false">
+                            <label for="k3v3">22</label>
+                        </h4>
+                        <h4>
+                            <input type="radio" id="k3v4" name="kys3" class="answer" value="false">
+                            <label for="k3v4">16</label>
+                        </h4>
                 </div>
-                <!--kortti4-->
-                <div class="card col-md-4 bg-success mb-4">
-                    <h2 class="mb-3 mt-3">2 + 7 = __?</h2> 
-                    <div>
-                        <input id="kys4vas1" type="radio" name="vastausNappi4" value="1">
-                        <label for="kys4vas1">5</label>
-                    </div>
-                    <div>
-                        <input id="kys4vas2" type="radio" name="vastausNappi4" value="2">
-                        <label for="kys4vas2">9</label>                    
-                    </div>
-                    <div>
-                        <input id="kys4vas3" type="radio" name="vastausNappi4" value="3">
-                        <label for="kys4vas3">6</label>                    
-                    </div>
-                    <div>
-                        <input id="kys4vas4" type="radio" name="vastausNappi4" value="4">
-                        <label for="kys4vas4">8</label>                    
-                    </div>
-                    <button class="mt-3" id="kys4OikeaVas">Tarkista vastaus</button>
-                    <p class="mt-3 mb-3" id="result4"></p>  
+                </section>
+                <!--Neljäs tehtävä-->
+                <section class="col-md-6 col-lg-4 my-4">
+                    <div class="card bg-success">
+                        <h3 class="mt-2">Montako prosenttia 5 on 50:stä ?</h3>
+                        <h4>
+                            <input type="radio" id="k4v1" name="kys4" class="answer" value="false">
+                            <label for="k4v1">20%</label>
+                        </h4>
+                        <h4>
+                            <input type="radio" id="k4v2" name="kys4" class="answer" value="false">
+                            <label for="k4v2">15%</label>
+                        </h4>
+                        <h4>
+                            <input type="radio" id="k4v3" name="kys4" class="answer" value="false">
+                            <label for="k4v3">50%</label>
+                        </h4>
+                        <h4>
+                            <input type="radio" id="k4v4" name="kys4" class="answer" value="true">
+                            <label for="k4v4">10%</label>
+                        </h4>
                 </div>
-                <!--kortti5-->
-                <div class="card col-md-4 bg-success mb-4">
-                    <h2 class="mb-3 mt-3">2 + 7 = __?</h2> 
-                    <div>
-                        <input id="kys5vas1" type="radio" name="vastausNappi5" value="1">
-                        <label for="kys5vas1">5</label>
-                    </div>
-                    <div>
-                        <input id="kys5vas2" type="radio" name="vastausNappi5" value="2">
-                        <label for="kys5vas2">9</label>                    
-                    </div>
-                    <div>
-                        <input id="kys5vas3" type="radio" name="vastausNappi5" value="3">
-                        <label for="kys5vas3">6</label>                    
-                    </div>
-                    <div>
-                        <input id="kys5vas4" type="radio" name="vastausNappi5" value="4">
-                        <label for="kys5vas4">8</label>                    
-                    </div>
-                    <button class="mt-3" id="kys5OikeaVas">Tarkista vastaus</button>
-                    <p class="mt-3 mb-3" id="result5"></p>  
+                </section>
+                <!--Viides tehtävä-->
+                <section class="col-md-6 col-lg-4 my-4">
+                    <div class="card bg-success">
+                        <h3 class="mt-2">30 x 2 : 4 = ?</h3>
+                        <h4>
+                            <input type="radio" id="k5v1" name="kys5" class="answer" value="false">
+                            <label for="k5v1">40</label>
+                        </h4>
+                        <h4>
+                            <input type="radio" id="k5v2" name="kys5" class="answer" value="false">
+                            <label for="k5v2">30</label>
+                        </h4>
+                        <h4>
+                            <input type="radio" id="k5v3" name="kys5" class="answer" value="true">
+                            <label for="k5v3">15</label>
+                        </h4>
+                        <h4>
+                            <input type="radio" id="k5v4" name="kys5" class="answer" value="false">
+                            <label for="k5v4">20</label>
+                        </h4>
                 </div>
-                <!--kortti6-->
-                <div class="card col-md-4 bg-success mb-4">
-                    <h2 class="mb-3 mt-3">2 + 7 = __?</h2> 
-                    <div>
-                        <input id="kys6vas1" type="radio" name="vastausNappi6" value="1">
-                        <label for="kys6vas1">5</label>
-                    </div>
-                    <div>
-                        <input id="kys6vas2" type="radio" name="vastausNappi6" value="2">
-                        <label for="kys6vas2">9</label>                    
-                    </div>
-                    <div>
-                        <input id="kys6vas3" type="radio" name="vastausNappi6" value="3">
-                        <label for="kys6vas3">6</label>                    
-                    </div>
-                    <div>
-                        <input id="kys6vas4" type="radio" name="vastausNappi6" value="4">
-                        <label for="kys6vas4">8</label>                    
-                    </div>
-                    <button class="mt-3" id="kys6OikeaVas">Tarkista vastaus</button>
-                    <p class="mt-3 mb-3" id="result6"></p>  
-                </div>
-
-
             </section>
+            <!--Kuudes tehtävä-->
+            <section class="col-md-6 col-lg-4 my-4">
+                <div class="card bg-success">
+                    <h3 class="mt-2">4 x 5 - 6 = ?</h3>
+                    <h4>
+                        <input type="radio" id="k6v1" name="kys6" class="answer" value="true">
+                        <label for="k6v1">14</label>
+                    </h4>
+                    <h4>
+                        <input type="radio" id="k6v2" name="kys6" class="answer" value="false">
+                        <label for="k6v2">18</label>
+                    </h4>
+                    <h4>
+                        <input type="radio" id="k6v3" name="kys6" class="answer" value="false">
+                        <label for="k6v3">16</label>
+                    </h4>
+                    <h4>
+                        <input type="radio" id="k6v4" name="kys6" class="answer" value="false">
+                        <label for="k6v4">15</label>
+                    </h4>
+                </div>
+            </section>
+                <!--Lukitse vastaukset painike, jolla saadaan tulos näkyviin-->
+                <div class="container-fluid text-center">
+                    <button type="button" id="lopetus" class=" mb-4 mt-3 btn btn-success btn-lg text-center">
+                        Lukitse vastaukset
+                    </button>
+                </div>
+            </div>
+        </div>
+         <!--Lopputulos ja oikeat vastaukset-->
+        <div id="loppuTulos" class="loppuTulos container text-center">
+            <h2 class="mt-5">Tuloksesi on:</h2>
+            <h2 id="tulos"></h2> <br>
+                <div class="card bg-success mb-4">
+                <h4 class="mt-3">Oikeat vastaukset:</h4>
+                <p>7 + 5 = 12</p>
+                <p>12 : 3 = 4</p>
+                <p>3 x 6 = 18</p>
+                <p>Montako prosenttia 5 on 50:stä ? = 10%</p>
+                <p>30 x 2 : 4 = 15</p>
+                <p>4 x 5 - 6 = 14</p>
+                </div>
+
+                <!--Painikkeet joilla pääsee pelaamaan tai valikkoon-->
+            <div>
+                <a href="Riku.html" class="btn btn-success mb-4" aria-current="page">Pelaa Uudelleen</a> <br>
+                <a href="index.html" class="btn btn-warning mb-4">Lopeta</a>
+            </div>
         </div>
     </main>
 
+    <!--Footeri-->
     <footer>
         <div class="text-center">
             <p>&copy Riku Honkamäki</p>

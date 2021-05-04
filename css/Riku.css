@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+/* Riku Honkamäki*/
+
+
+/* Määritetään taustavärit */
 :root {
     background-color: #97be77;
 }
@@ -10,12 +16,20 @@ footer {
     background-color: #97be77;
 }
 
+/* Siirretään otsikkoa vähän kauemmas navbaarista */
 h1 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
     padding-top: 20px;
 }
 
-form div {
-    padding-top: 50px;
-    padding-bottom: 50px;
+/* tällä piilotetaan tulos-sivu*/
+.loppuTulos {
+    display: none;
+}
+/* tällä piilotetaan kysymykset kun tulos-sivu tuodaan esiin */
+.not_visible {
+    display: none;
+}
+/* Erikois fontti matikkavisan esittelyä varten */
+div h5 {
+    font-family: 'Patrick Hand', cursive;
 }

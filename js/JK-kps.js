@@ -1,4 +1,5 @@
 /// <reference path="jquery-3.6.0.js" />
+
 /**
  * Jan-Erik Kämäräinen
  */
