@@ -1,0 +1,21 @@
+:root {
+    background-color: #FDCD6D;
+}
+
+body {
+    background-color: #FDCD6D;
+}
+
+footer {
+    background-color: #FDCD6D;
+}
+
+h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding-top: 20px;
+}
+
+form div {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
