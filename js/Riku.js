@@ -1,45 +1,33 @@
 
+let correctAnswers = 0;
+let wrongAnswers = 0;
+
 $(function() {
 
     $("#kys1OikeaVas").on("click", function() {
         let selection = $("[name=vastausNappi1]:checked").val();
 
-        if (selection === "1") {
-            $("#result1").html("Laskeppas uudestaan..");
-
-        }   else if (selection === "2") {
-
+        if (selection === "true") {
             $("#result1").html("Oikein, Hienoa!");
+            correctAnswers++;
+        }   else if (selection === "false") {
+            wrongAnswers++;
+            $("#result1").html("hups, väärin meni. Oikea vastaus on: 9");
         
-        }   else if (selection === "3") {
-
-            $("#result1").html("Ei ihan...");
-        
-        }   else if (selection === "4") {
-
-            $("#result1").html("Hups, väärin meni...");
-        } 
-          
+        }    
  });
 
  $("#kys2OikeaVas").on("click", function() {
     let selection = $("[name=vastausNappi2]:checked").val();
 
-    if (selection === "1") {
-        $("#result2").html("Laskeppas uudestaan..");
-
-    }   else if (selection === "2") {
-
+    if (selection === "true") {
         $("#result2").html("Oikein, Hienoa!");
+        correctAnswers++;
+    }   else if (selection === "false") {
+        wrongAnswers++;
+        $("#result2").html("väärin meni!");
     
-    }   else if (selection === "3") {
-
-        $("#result2").html("Ei ihan...");
-    
-    }   else if (selection === "4") {
-
-        $("#result2").html("Hups, väärin meni...");
-    } 
+    }
       
 });
 
@@ -132,8 +120,60 @@ $("#kys6OikeaVas").on("click", function() {
 });
 
 
- $("[name=valintaNappi]").on("click", function() {
-    $("#result").html("");
+ $("[name=vastausNappi1]").on("click", function() {
+    $("#result1").html("");
  });
 
+ $("[name=vastausNappi2]").on("click", function() {
+    $("#result2").html("");
+ });
+
+ $("[name=vastausNappi3]").on("click", function() {
+    $("#result3").html("");
+ });
+
+ $("[name=vastausNappi4]").on("click", function() {
+    $("#result4").html("");
+ });
+
+ $("[name=vastausNappi5]").on("click", function() {
+    $("#result5").html("");
+ });
+
+ $("[name=vastausNappi6]").on("click", function() {
+    $("#result6").html("");
+ });
+
+ function showResult () {
+    $("#tulosKortti").show()
+
+    oikeatvastaukset();
+ };
+
+
+ function oikeatvastaukset() {
+    if (correctAnswers === 0) { 
+        $("#tulokset").html("0 / 6")
+
+    }  else if (correctAnswers === 1) {
+        $("#tulokset").html("1 / 6")
+
+    } else if (correctAnswers === 2) {
+        $("#tulokset").html("2 / 6")
+
+    }  else if (correctAnswers === 3) {
+        $("#tulokset").html("3 / 6")
+
+    } else if (correctAnswers === 4) {
+        $("#tulokset").html("4 / 6")
+
+    } else if (correctAnswers === 5) {
+        $("#tulokset").html("5 / 6")
+
+    } else if (correctAnswers === 6) {
+        $("#tulokset").html("6 / 6")
+    }
+}
+
+ 
 });
