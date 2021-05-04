@@ -6,27 +6,22 @@ header {
 }
 
 h1 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, "Times New Roman", Times, serif;
     font-size: large;
 }
 .btn {
-   padding: 40px;
-   
-} 
-div {
-    padding-bottom: 5px;
+    padding: 40px;
 }
 
 body {
-    background-color:#B9E39C
-      
-  }
-  
-  ul {
+    background-color: #b9e39c;
+}
+
+ul {
     text-align: justify;
     list-style-type: none;
 }
-   
+
 .not_visible {
     display: none;
     font-weight: bold;
@@ -46,7 +41,6 @@ address {
 }
 .btn {
     padding: 20px;
-
 }
 /* Loppunäyttö*/
 .summary {
@@ -58,7 +52,7 @@ address {
 }
 .card {
     padding: 5px;
-    background-color: burlywood
+    background-color: burlywood;
 }
 footer {
     background-color: burlywood;
