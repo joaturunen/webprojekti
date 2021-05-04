@@ -1,14 +1,82 @@
-/* Värimaailma */
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap");
+
+:root {
+    --color-bg: rgb(245, 245, 229);
+    --color-card: #6180a0;
+    --color-jumbotron-bg: #fff;
+    --color-text: #fff;
+    --color-nav-item-hover: rgb(224, 224, 203);
+    --color-btn-hover: rgb(62, 73, 87);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Bebas Neue", sans-serif;
+}
+
+p {
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+
+#game-btn {
+    border: none;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+#game-btn:hover {
+    background-color: var(--color-btn-hover);
+    color: var(--color-text);
+}
+
+.navbar-brand {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 24px;
+}
+
+.header-color {
+    background-color: var(--color-bg);
+}
+
 .bg-color {
-    background-color: rgb(236, 241, 241);
+    background-color: var(--color-bg);
+}
+
+.jumbotron {
+    border-style: double;
+    border-width: 6px;
+    background-color: var(--color-jumbotron-bg);
+    border-radius: 10px;
 }
 
 .card {
-    background-color: rgba(205, 252, 238, 0.904);
+    background-color: var(--color-card);
+    color: var(--color-text);
     text-align: center;
-    border-radius: 10;
-    border-style: solid;
-    border-color: lightslategrey;
-    border-width: 2px;
+    border-radius: 5px;
     vertical-align: sub;
+}
+
+.card img {
+    border-radius: 5px 5px 0px 0px;
+}
+
+/*  Enable hover only on devices that supoort it.
+    This prevents button staying activated on mobile */
+@media (hover: hover) {
+    .nav-link:hover {
+        background-color: var(--color-nav-item-hover);
+    }
+}
+
+ul {
+    text-align: center;
+    list-style-position: inside;
 }

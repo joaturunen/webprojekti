@@ -20,8 +20,9 @@ body {
     overflow-y: auto;
 }
 
-main,
-footer {
+h1,
+h2,
+main {
     font-family: "Patrick Hand", sans-serif;
 }
 
