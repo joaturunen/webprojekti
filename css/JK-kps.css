@@ -22,7 +22,8 @@ body {
 
 h1,
 h2,
-main {
+main,
+p {
     font-family: "Patrick Hand", sans-serif;
 }
 

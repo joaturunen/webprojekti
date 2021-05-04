@@ -277,6 +277,10 @@ $(function () {
 
         summaryModal.show();
 
+        $("#btnFrontpage").on("click", function () {
+            location.pathname = "index.html";
+        });
+
         $("#btnPlayAgain").on("click", function () {
             location.reload();
         });
