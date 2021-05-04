@@ -53,32 +53,160 @@
             </div>
         </nav>
     </header>
+<!--Kysymys&vastaus osiot-->
+    <main class="container">
+        <div id="questions">
+        <div class="row">
+           
+        <section class="col-12 col-md-5 col-lg-6"> 
+            <div class="card" style="width: 18rem;">
+            <h2>Mikä näistä on suomen naapurimaa?</h2>
+            <ul>
+                <li>
+                    <input type="radio" id="correctA" name="quest1" class="answer" value="1"> <!--1=oikein 0=väärin-->
+                    <label for="c1g">Norja</label>
+                </li>
+                <li>
+                    <input type="radio" id="Q1A2" name="quest1" class="answer" value="0">
+                    <label for="c2g">Sveitsi</label>
+                </li>
+                <li>
+                    <input type="radio" id="Q1A3" name="quest1" class="answer" value="0">
+                    <label for="c3g">Kiina</label>
+                </li>
+                <li>
+                    <input type="radio" id="Q1A4" name="quest1" class="answer" value="0">
+                    <label for="c3g">Latvia</label>
+                </li>
+            </ul>
+            <p class="not_visible">Suomella ja Norjalla on noin 736 kilometriä yhteistä rajaa.</p>
+            <!--Joka kysymyksen jälkeen klikatessa lisätietoa kysymyksestä-->
+        </div></section>
 
-    <main class="container-fluid">
-        <!--Progress bar -->
-        <div>
-            <section class="progress" id="ProgressBar">
-                <div class="bar" style="height: 1px;">
-                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
-                        aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-        </div>
-        <div class="col text-center">
-            <!--Question-->
-            <h1 id="question" class="text-center">Kysymys tähän</h1>
-        </div>
+        <section class="col-12 col-md-5 col-lg-6">
+            <div class="card" style="width: 18rem;">
+            <h2>Mikä näistä on Suomen pääkaupunki?</h2> 
+            
+            <ul>
+                <li>
+                    <input type="radio" id="Q2A1" name="quest2" class="answer"value="0">
+                    <label for="c1h">Tampere</label>
+                </li>
+                <li>
+                    <input type="radio" id="Q2A2" name="quest2" class="answer" value="0">
+                    <label for="c2h">Oulu</label>
+                </li>
+                <li>
+                    <input type="radio" id="CorrecA" name="quest2" class="answer"value="1">
+                    <label for="c3h">Helsinki</label>
+                </li>
+                <li>
+                    <input type="radio" id="Q2A4" name="quest2" class="answer"value="0">
+                    <label for="c3h">Turku</label>
+                </li>
+            </ul>
+            <p class="not_visible">Helsingistä tuli Suomen pääkaupunki vuonna 1812</p>
+       </div> </section>
+    </div>
+    <div class="row">
+        <section class="col-12 col-md-5 col-lg-6">
+            <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="img/Juho/iceland-162318_640.png" alt="Card image cap">
+  <!--https://pixabay.com/fi/vectors/islanti-lippu-kansallinen-lippu-162318/-->
+  <div class="card-body">
+    <h5 class="card-title">Minkä maan lippu tämä on?</h5>
+     <ul>
+                <li>
+                    <input type="radio" id="Q2A1" name="quest3" class="answer"value="0">
+                    <label for="c1h">Ruotsi</label>
+                </li>
+                <li>
+                    <input type="radio" id="Q2A2" name="quest3" class="answer" value="0">
+                    <label for="c2h">Suomi</label>
+                </li>
+                <li>
+                    <input type="radio" id="CorrecA" name="quest3" class="answer"value="1">
+                    <label for="c3h">Islanti</label>
+                </li>
+                <li>
+                    <input type="radio" id="Q2A4" name="quest3" class="answer"value="0">
+                    <label for="c3h">Norja</label>
+                </li>
+            </ul>
+  </div>
+</div>
+            <p class="not_visible">Lipussa yhdistyvät Islannin perinteiset värit: valkoinen ja sininen.</p>
         </section>
 
-        <div class="buttons row-cols-auto gap-3 text-center">
-            <!--Answers-->
-            <button type="button" class="btn btn-primary btn-lg mb-4 me-4 col-5" id="Answ1">Vaihtoehto 1</button>
-            <button type="button" class="btn btn-primary btn-lg mb-4 col-5" id="Answ2">Vaihtoehto 2</button>
-            <button type="button" class="btn btn-primary btn-lg mb-4 me-4 col-5" id="Answ3">Vaihtoehto 3</button>
-            <button type="button" class="btn btn-primary btn-lg mb-4 col-5" id="Answ4">Vaihtoehto 4</button>
-
-
+        <section class="col-12 col-md-5">
+            <div class="card" style="width: 18rem;">
+            <h2>Mikä näistä on maanosa?</h2>
+            <ul>
+                <li>
+                    <input type="radio" id="Q4A1" name="quest4" class="answer"value="0">
+                    <label for="c1h">Kiina</label>
+                </li>
+                <li>
+                    <input type="radio" id="CorrectA" name="quest4" class="answer" value="1">
+                    <label for="c2h">Afrikka</label>
+                </li>
+                <li>
+                    <input type="radio" id="Q4A3" name="quest4" class="answer"value="0">
+                    <label for="c3h">Alankomaat</label>
+                </li>
+                <li>
+                    <input type="radio" id="Q4A4" name="quest4" class="answer"value="0">
+                    <label for="c3h">Japani</label>
+                </li>
+            </ul>
+            <p class="not_visible">Maanosia on kaikenkaikkiaan 6 ja Afrikka on yksi niistä.</p>
         </div>
-
+    </section>
+    </div>
+        <section class="col-12">
+            <div class="card" style="width: 18rem;">
+            <h2>Missä maassa sijaitsee Eiffeli-torni?</h2>
+           
+            <ul>
+                <li>
+                    <input type="radio" id="Q5A1" name="quest5" class="answer"value="0">
+                    <label for="c3h">Italia</label>
+                </li>
+                <li>
+                    <input type="radio" id="CorrectA" name="quest5" class="answer"value="1">
+                    <label for="c1h">Ranska</label>
+                </li>
+                <li>
+                    <input type="radio" id="Q5A3" name="quest5" class="answer" value="0">
+                    <label for="c2h">Saksa</label>
+                </li>
+                <li>
+                    <input type="radio" id="Q5A4" name="quest5" class="answer"value="0">
+                    <label for="c3h">Sveitsi</label>
+                </li>
+            </ul>
+        </div>
+            <p class="row not_visible">Eiffel-torni sijaitsee Pariisissa. Se rakennettiin vuosina 1887-1189 </p>
+       <!--Tarkasta tulos painike-->
+       
+        <div class="container-fluid text-center">
+            <button type="button" id="end_button" class=" btn btn-primary btn-sm text-center">Tarkasta tulos</button>
+        </div> 
+    </div>
+        </section>
+        
+        
+        <!--Piilotettu loppunäyttö-->
+        
+          <div id="summary" class="container text-center summary">
+                        <h4>Pisteesi</h4>
+                <h3 id="Score"></h3> <br>
+                <h2 id="Feedback">Palaute</h2>
+                <div class="btn-group">
+                    <a href="Juho.html" class="btn btn-primary" aria-current="page">Pelaa uudestaan</a>
+                    <a href="index.html" class="btn btn-danger">Poistu etusivulle</a>
+            </div>
+          </div>
     </main>
 
     <footer>
@@ -89,7 +217,7 @@
             <p>2021</p>
         </div>
     </footer>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
         integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
         crossorigin="anonymous"></script>
