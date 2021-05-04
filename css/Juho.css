@@ -1,15 +1,69 @@
 section {
     padding-bottom: 40px;
 }
-
+header {
+    padding-bottom: 50px;
+}
 
 h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
 }
 .btn {
    padding: 40px;
    
 } 
-.mb-2 {
-    margin-top: 2px;
+div {
+    padding-bottom: 5px;
+}
+
+body {
+    background-color:#B9E39C
+      
+  }
+  
+  ul {
+    text-align: justify;
+    list-style-type: none;
+}
+   
+.not_visible {
+    display: none;
+    font-weight: bold;
+    font-size: larger;
+}
+.right {
+    color: green;
+    font-size: large;
+    font-weight: bold;
+}
+.wrong {
+    color: red;
+}
+address {
+    font-size: smaller;
+    display: inline-block;
+}
+.btn {
+    padding: 20px;
+
+}
+/* Loppunäyttö*/
+.summary {
+    display: none;
+    color: ivory;
+    width: 75%;
+    height: 75%;
+    margin-top: 150px;
+}
+.card {
+    padding: 5px;
+    background-color: burlywood
+}
+footer {
+    background-color: burlywood;
+    margin-top: 5px;
+}
+.end_button {
+    margin-top: 100px;
 }
