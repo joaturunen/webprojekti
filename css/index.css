@@ -60,8 +60,12 @@ body {
     background-color: var(--color-card);
     color: var(--color-text);
     text-align: center;
-    border-radius: 10;
+    border-radius: 5px;
     vertical-align: sub;
+}
+
+.card img {
+    border-radius: 5px 5px 0px 0px;
 }
 
 /*  Enable hover only on devices that supoort it.
