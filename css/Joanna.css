@@ -1,3 +1,4 @@
+/* Joanna Turunen */
 
 /* fontit */
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap");
@@ -25,20 +26,24 @@ body {
 main {
   color: black;
   margin: 0;
-  /* background: linear-gradient(to top right, #559e54 0%, #92c591 100%); */
 }
 
 .taulu {
   margin: 20px;
   width: 100%;
+  max-width: 500px;
   height: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* cardit */
 
 .card {
   color: black;
+  background-color: transparent;
   width: 100%;
+  /* max-width: 400px; */
   height: 350px;
   border: none;
 }
@@ -54,7 +59,7 @@ main {
 }
 
 .back {
-  background: linear-gradient(to bottom left, #305a30 0%, #559e54 80%);
+  background: linear-gradient(to bottom right, #305a30 0%, #559e54 80%);
 } 
 
 /* vastausnapit */
@@ -89,7 +94,7 @@ main {
   
 }
 
-/* prev, next, start, try next napit */
+/* next, start again napit */
 
 .nappula {
   background: linear-gradient(to bottom, #559e54 0%, #305a30 100%);
@@ -123,7 +128,7 @@ main {
 
 .tulosruutu {
   width: 100%;
-  height: 300px;
+  height: 350px;
   border: 2px solid black;
   border-radius: 8px;
   background: linear-gradient(to bottom left, #559e54 0%, #305a30 80%);
