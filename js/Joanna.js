@@ -67,12 +67,12 @@ $(function () {
     
     $("#tulosruutu").hide();
 
+    clickHandler();
+
     function init() {
         seuraava();
         $("#kysymyscardi").show();
-        clickHandler();
         initCompleted = true;
-    
     }
 
     $("#next").on('click', function() {
@@ -83,8 +83,6 @@ $(function () {
             naytaTulos();
         } else {
             init();
-            console.log(oikeat);
-            console.log(vaarat);
         }
     })
 
@@ -127,14 +125,10 @@ $(function () {
     function tarkistaVastaus(vastausNappi, oikeaVastaus) {
 
         if (vastausNappi.text() === oikeaVastaus) {
-            
-            console.log(oikeat);
             $(`[name=pallura]:eq(${kysNro})`).addClass("right");
             $("#palaute").html("Hienoa, vastasit oikein!");
             oikeat++;
         } else {
-            
-            console.log(vaarat);
             $(`[name=pallura]:eq(${kysNro})`).addClass("wrong");
             $("#palaute").html("Oi voi, vastaus meni väärin.");
             vaarat++;
@@ -170,10 +164,6 @@ $(function () {
             $("#lopputulos").html(palauteTeksti.ylin);
         }
     }
-
-
-    
-
 })
 
 

@@ -43,7 +43,6 @@ main {
   color: black;
   background-color: transparent;
   width: 100%;
-  /* max-width: 400px; */
   height: 350px;
   border: none;
 }
@@ -137,9 +136,3 @@ main {
   align-items: center;
   padding: 20px;
 }
-
-/* footer */
-/* 
-footer {
-  background: linear-gradient(to top right, #559e54 0%, #92c591 100%);
-} */
