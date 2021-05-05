@@ -22,10 +22,6 @@ p {
     font-family: "Roboto", sans-serif;
 }
 
-.active {
-    background-color: var(--color-nav-item-hover);
-}
-
 body {
     font-family: "Roboto", sans-serif;
 }
