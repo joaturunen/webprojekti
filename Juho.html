@@ -36,7 +36,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="JK-kps.html">Kivi, paperi ja sakset</a>
                         </li>
-                        <li class="nav-item active">
+                        <li class="nav-item">
                             <a class="nav-link" href="Juho.html">Maantietovisa</a>
                         </li>
                         <li class="nav-item">
@@ -56,9 +56,13 @@
             </div>
         </nav>
     </header>
-    <!--Kysymys&vastaus osiot-->
-    <main class="container">
+
+     <!--Kysymys&vastaus osiot-->
+     <main class="container">
+         
         <div id="questions">
+        <h3 class="text-center">Tällä sivustolla voit testata maantiedon osaamistasi monipuolisesti.</h3>
+        <h3 class="text-center">Jokaisen kysymyksen jälkeen saat lisätietoa kysymyksestä. Kun olet vastannut kaikkiin kysymyksiin paina "Tarkasta tulos" painiketta.</h3>
             <div class="row">
 
                 <section class="col-12 col-md-5 col-lg-6">
@@ -90,6 +94,32 @@
 
                 <section class="col-12 col-md-5 col-lg-6">
                     <div class="card" style="width: 18rem;">
+                        <h2>Mikä näistä on maanosa?</h2>
+                        <ul>
+                            <li>
+                                <input type="radio" id="Q4A1" name="quest4" class="answer" value="0">
+                                <label for="c1h">Kiina</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="CorrectA" name="quest4" class="answer" value="1">
+                                <label for="c2h">Afrikka</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="Q4A3" name="quest4" class="answer" value="0">
+                                <label for="c3h">Alankomaat</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="Q4A4" name="quest4" class="answer" value="0">
+                                <label for="c3h">Japani</label>
+                            </li>
+                        </ul>
+                        <p class="not_visible">Maanosia on kaikenkaikkiaan 6 ja Afrikka on yksi niistä.</p>
+                </section>
+            </div>
+            <div class="row">
+                <section class="col-12 col-md-5 col-lg-6">
+                    <div class="card" style="width: 18rem;">
+                        
                         <h2>Mikä näistä on Suomen pääkaupunki?</h2>
 
                         <ul>
@@ -111,67 +141,12 @@
                             </li>
                         </ul>
                         <p class="not_visible">Helsingistä tuli Suomen pääkaupunki vuonna 1812</p>
-                    </div>
-                </section>
-            </div>
-            <div class="row">
-                <section class="col-12 col-md-5 col-lg-6">
-                    <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="img/Juho/iceland-162318_640.png" alt="Card image cap">
-                        <!--https://pixabay.com/fi/vectors/islanti-lippu-kansallinen-lippu-162318/-->
-                        <div class="card-body">
-                            <h5 class="card-title">Minkä maan lippu tämä on?</h5>
-                            <ul>
-                                <li>
-                                    <input type="radio" id="Q2A1" name="quest3" class="answer" value="0">
-                                    <label for="c1h">Ruotsi</label>
-                                </li>
-                                <li>
-                                    <input type="radio" id="Q2A2" name="quest3" class="answer" value="0">
-                                    <label for="c2h">Suomi</label>
-                                </li>
-                                <li>
-                                    <input type="radio" id="CorrecA" name="quest3" class="answer" value="1">
-                                    <label for="c3h">Islanti</label>
-                                </li>
-                                <li>
-                                    <input type="radio" id="Q2A4" name="quest3" class="answer" value="0">
-                                    <label for="c3h">Norja</label>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <p class="not_visible">Lipussa yhdistyvät Islannin perinteiset värit: valkoinen ja sininen.</p>
+                    </div> 
                 </section>
 
                 <section class="col-12 col-md-5">
-                    <div class="card" style="width: 18rem;">
-                        <h2>Mikä näistä on maanosa?</h2>
-                        <ul>
-                            <li>
-                                <input type="radio" id="Q4A1" name="quest4" class="answer" value="0">
-                                <label for="c1h">Kiina</label>
-                            </li>
-                            <li>
-                                <input type="radio" id="CorrectA" name="quest4" class="answer" value="1">
-                                <label for="c2h">Afrikka</label>
-                            </li>
-                            <li>
-                                <input type="radio" id="Q4A3" name="quest4" class="answer" value="0">
-                                <label for="c3h">Alankomaat</label>
-                            </li>
-                            <li>
-                                <input type="radio" id="Q4A4" name="quest4" class="answer" value="0">
-                                <label for="c3h">Japani</label>
-                            </li>
-                        </ul>
-                        <p class="not_visible">Maanosia on kaikenkaikkiaan 6 ja Afrikka on yksi niistä.</p>
-                    </div>
-                </section>
-            </div>
-            <section class="col-12">
-                <div class="card" style="width: 18rem;">
-                    <h2>Missä maassa sijaitsee Eiffeli-torni?</h2>
+                        <div class="card" style="width: 18rem;">
+                            <h2>Missä maassa sijaitsee Eiffeli-torni?</h2>
 
                     <ul>
                         <li>
@@ -191,8 +166,38 @@
                             <label for="c3h">Sveitsi</label>
                         </li>
                     </ul>
-                </div>
-                <p class="row not_visible">Eiffel-torni sijaitsee Pariisissa. Se rakennettiin vuosina 1887-1189 </p>
+                    <p class="row not_visible">Eiffel-torni sijaitsee Pariisissa. Se rakennettiin vuosina 1887-1189 </p>
+                        </div>
+                </section>
+            
+            <section class="row">
+                <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="img/Juho/iceland-162318_640.png" alt="Card image cap">
+                <!--https://pixabay.com/fi/vectors/islanti-lippu-kansallinen-lippu-162318/-->
+                <div class="card-body">
+                    <h2 class="card-title">Minkä maan lippu tämä on?</h2>
+                    <ul>
+                        <li>
+                            <input type="radio" id="Q2A1" name="quest3" class="answer" value="0">
+                            <label for="c1h">Ruotsi</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="Q2A2" name="quest3" class="answer" value="0">
+                            <label for="c2h">Suomi</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="CorrecA" name="quest3" class="answer" value="1">
+                            <label for="c3h">Islanti</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="Q2A4" name="quest3" class="answer" value="0">
+                            <label for="c3h">Norja</label>
+                        </li>
+                    </ul>
+                <p class="not_visible">Lipussa yhdistyvät Islannin perinteiset värit: valkoinen ja sininen.</p>
+            </div>
+           </div>
+        </div>
                 <!--Tarkasta tulos painike-->
 
                 <div class="container-fluid text-center">
@@ -201,19 +206,19 @@
                 </div>
         </div>
         </section>
-
-
+        
+        
         <!--Piilotettu loppunäyttö-->
-
-        <div id="summary" class="container text-center summary">
-            <h4>Pisteesi</h4>
-            <h3 id="Score"></h3> <br>
-            <h2 id="Feedback">Palaute</h2>
-            <div class="btn-group">
-                <a href="Juho.html" class="btn btn-primary" aria-current="page">Pelaa uudestaan</a>
-                <a href="index.html" class="btn btn-danger">Poistu etusivulle</a>
+        
+          <div id="summary" class="container text-center summary">
+                        <h3>Pisteesi</h3>
+                <h3 id="Score"></h3> <br>
+                <h3 id="Feedback"></h3>
+                <div class="btn-group">
+                    <a href="Juho.html" class="btn btn-primary" aria-current="page">Pelaa uudestaan</a>
+                    <a href="index.html" class="btn btn-danger">Poistu etusivulle</a>
             </div>
-        </div>
+          </div>
     </main>
 
     <footer>
@@ -224,7 +229,7 @@
             <p>2021</p>
         </div>
     </footer>
-
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
         integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
         crossorigin="anonymous"></script>
