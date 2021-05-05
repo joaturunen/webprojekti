@@ -1,5 +1,22 @@
-section {
+/*fontteja*/
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto:wght@100&display=swap');
+
+h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: larger;
+}
+h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: x-large;
+}
+main {
+    padding: 0px;
+}
+section {   
     padding-bottom: 40px;
+    width: 100%;
+    padding-right: 0px;
 }
 header {
     padding-bottom: 50px;
@@ -7,7 +24,7 @@ header {
 
 h1 {
     font-family: Georgia, "Times New Roman", Times, serif;
-    font-size: large;
+    font-size: larger;
 }
 .btn {
     padding: 40px;
@@ -24,8 +41,6 @@ ul {
 
 .not_visible {
     display: none;
-    font-weight: bold;
-    font-size: larger;
 }
 .right {
     color: green;
@@ -55,9 +70,16 @@ address {
     background-color: burlywood;
 }
 footer {
-    background-color: burlywood;
     margin-top: 5px;
 }
 .end_button {
     margin-top: 100px;
+
+}
+div {
+    width: 100%;
+}
+.btn-group {
+    width: 30%;
+    padding-top: 15px;
 }

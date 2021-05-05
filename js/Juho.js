@@ -5,13 +5,10 @@ $(function(){
  */
 
 /*palaute*/
-const Feedback = [
-    Low = "Nyt ei mennyt aivan nappiin!",
-    Middle ="Vielä voi vähän parantaa!",
-    High = "Hienosti meni!",
-    Empty = "Vastaathan kaikkiin kysymyksiin!"
-];
-let points = $("")
+
+let points = 0;
+let nopoints = 0;
+
 /*Lukitsee vastaukset*/
  $(".answer").on("click", function(){
     $(this).parent().addClass("selected");
@@ -28,8 +25,8 @@ $(".answer").on("click", function(){
 /*Korostaa vihreällä oikean vastauksen kun jokin vaihtoehdoista valittu*/
 
 $(".answer").on("click", function(){
-    let answer = Number($(this).val());
-    if (answer === 1) {
+    let answer = ($(this).val());
+    if (answer === "1") {
         
         $(this).parent().addClass("selected")
         let name_attribuutti = $(this).attr("name");
@@ -43,17 +40,38 @@ $(".answer").on("click", function(){
         $(correct_answer).parent().addClass("right")
     }
 });
+/* Laskee pisteet */
 
-/* Tuo loppu näytön esiin "Tarkista tulos napista" */
-
-
-/* Laskee pisteet ja tulostaa pisteet sekä palautteeen */
+$(".answer").on("click", function(){
+    let answer = ($(this).val());
+    if (answer === "1") {
+        let name = $(this).attr("name");
+            "[name=" + name + "][value=1]";
+            points++; 
+        } else {
+            let name = $(this).attr("name");
+            "[name=" + name + "][value=1]";
+            nopoints++;
+        }
+    })
+/*Tulostaa pisteet*/ 
 $("#end_button").on("click", function(){
     $("#Score").html(points + "/5")
 })
-
+/*Tulostaa palautteen*/ 
+$("#end_button").on("click", function(){
+if(points <= 2) {
+    $("#Feedback").html("Nyt ei mennyt aivan nappiin!");
+} else if(points === 3) {
+    $("#Feedback").html("Vielä voisit vähän parantaa!");
+} else if(points >= 4) {
+    $("#Feedback").html("Hienosti meni!");
+}
+})
+/* Tuo loppu näytön esiin "Tarkista tulos napista" */
 $("#end_button").on("click", function(){
     $("#questions").addClass("not_visible")
     $("#summary").removeClass("summary")
 })
 });
+
