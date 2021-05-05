@@ -156,14 +156,18 @@ $(function () {
     }
 
     function laskePalaute() {
-        if(oikeat <= 1) {
+        if(oikeat === 0 || oikeat === 1) {
             $("#lopputulos").html(palauteTeksti.alin);
-        } else if(oikeat === 3) {
+            //$("#emoji").addClass("fa-meh");
+        } else if(oikeat === 2 || oikeat === 3) {
             $("#lopputulos").html(palauteTeksti.keski);
-        } else if(oikeat >= 4) {
+            //$("#emoji").addClass("fa-smile");
+        } else if(oikeat === 4 || oikeat === 5) {
             $("#lopputulos").html(palauteTeksti.ylin);
+            //$("#emoji").addClass("fa-grin-stars");
         }
     }
+
 })
 
 
