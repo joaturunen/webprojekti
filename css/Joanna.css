@@ -18,7 +18,8 @@ p {
 
 body {
     font-family: "Roboto", sans-serif;
-    background: linear-gradient(to top right, #559e54 0%, #92c591 100%);
+    background: linear-gradient(to top, #559e54 0%, #92c591 100%);
+    background-size: 100% 140%;
 }
 
 /* taustat */
