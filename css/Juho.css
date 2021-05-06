@@ -1,3 +1,4 @@
+/*Juho Karppinen*/
 /*fontteja*/
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Roboto:wght@100&display=swap');
@@ -33,12 +34,10 @@ h1 {
 body {
     background-color: #b9e39c;
 }
-
-ul {
+.Answers {
     text-align: justify;
     list-style-type: none;
 }
-
 .not_visible {
     display: none;
 }
@@ -47,13 +46,7 @@ ul {
     font-size: large;
     font-weight: bold;
 }
-.wrong {
-    color: red;
-}
-address {
-    font-size: smaller;
-    display: inline-block;
-}
+
 .btn {
     padding: 20px;
 }
