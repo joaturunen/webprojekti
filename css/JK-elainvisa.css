@@ -10,7 +10,6 @@
 }
 
 body {
-    /* Background gradient */
     background: linear-gradient(to bottom, #396499 0%, #2e7fca 100%);
     background-size: 300% 300%;
     position: relative;

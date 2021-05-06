@@ -296,14 +296,4 @@ $(function () {
             $("#summaryText").html(summaryText.Four);
         }
     }
-
-    /**
-     *
-     * @param {number} min - Minimum number
-     * @param {number} max - Maximum number
-     * @returns {number} - Returns a number between min and max (min included, max excluded)
-     */
-    function getRndInteger(min, max) {
-        return Math.floor(Math.random() * (max - min)) + min;
-    }
 });

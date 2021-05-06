@@ -1,7 +1,7 @@
 /// <reference path="jquery-3.6.0.js" />
 
 /**
- * Jan-Erik Kämäräinen
+ *  Jan-Erik Kämäräinen
  */
 
 "use strict";
@@ -52,15 +52,15 @@ $(function () {
      * Returns a property of the Choice object
      * Makes the code easier to read.
      *
-     * @param {Number} number -
-     * @returns
+     * @param {number} number - Number between 0-2
+     * @returns {object} - The choice from Choice object
      */
     function numToChoice(number) {
         if (number === 0) {
             return Choice.ROCK;
         } else if (number === 1) {
             return Choice.PAPER;
-        } else {
+        } else if (number === 2) {
             return Choice.SCISSORS;
         }
     }
@@ -68,7 +68,7 @@ $(function () {
     /**
      * Compare the choices of user and computer.
      *
-     * @param {Object} rpsBtn - The user choice button object
+     * @param {object} rpsBtn - The user choice button object
      */
     function checkResult(rpsBtn) {
         let computerNum = getRndInteger(0, 2);
@@ -157,6 +157,7 @@ $(function () {
     }
 
     /**
+     * Prints the game result icons
      *
      * @param {string} result - Result string from Game object
      */

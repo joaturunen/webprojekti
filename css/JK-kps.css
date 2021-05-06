@@ -11,7 +11,6 @@
 }
 
 body {
-    /* Background gradient */
     background: linear-gradient(to bottom, #0b3a30, #237a57);
     background-size: 100% 200%;
     color: var(--color-text);
